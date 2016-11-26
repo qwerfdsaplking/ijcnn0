@@ -1,0 +1,438 @@
+\documentclass[conference]{IEEEtran}
+
+
+%\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{mdwmath}
+\usepackage{mdwtab}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{pifont}
+\usepackage{algpseudocode}
+\usepackage{balance}
+\usepackage{bm}
+\usepackage{ulem}
+\usepackage{array}
+\usepackage{balance}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{threeparttable}
+\frenchspacing
+\usepackage[marginal]{footmisc}
+\usepackage{extarrows}
+\usepackage{natbib}
+
+%add the command initial
+\algnewcommand\algorithmicInitial{\textbf{Initialize:}}
+\algnewcommand\Initial{\item[\algorithmicInitial]}
+\algnewcommand\algorithmicIterate{\textbf{Iterate:}}
+\algnewcommand\Iterate{\item[\algorithmicIterate]}
+
+
+
+\ifCLASSINFOpdf
+
+\else
+
+\fi
+
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+%\title{Bare Demo of IEEEtran.cls\\ for IEEE Conferences}
+\title{Speed Maintained SVRG}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Michael Shell}
+\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+Georgia Institute of Technology\\
+Atlanta, Georgia 30332--0250\\
+Email: http://www.michaelshell.org/contact.html}
+\and
+\IEEEauthorblockN{Homer Simpson}
+\IEEEauthorblockA{Twentieth Century Fox\\
+Springfield, USA\\
+Email: homer@thesimpsons.com}
+\and
+\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
+\IEEEauthorblockA{Starfleet Academy\\
+San Francisco, California 96678--2391\\
+Telephone: (800) 555--1212\\
+Fax: (888) 555--1212}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+Stochastic gradient desent (SGD) is widely used for large-scale machine learning optimization but has slow convergence rate due to the high inherent variance. In recent years, the popular Stochastic variance reduced gradient (SVRG) method mitigates this shortcoming, through computing the full-gradient of the entire dataset occasionally. Although many variants of SVRG have been proposed to improve the performance, few papers discuss how frequently should a full-gradient be computed. In our paper, we propose \textsc{smSVRG}, a variant of SVRG, but instead of fixing the epoch size, it applies an real-time checking strategy to adjust the epoch size dynamically. Moreover, we provide the guidance of choosing the checking interval and propose an improved method \textsc{smSVRG+}, which is comparable to and sometimes even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions.
+
+\end{abstract}
+
+% no keywords
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% no \IEEEPARstart
+In machine learning, it is common to encounter the following optimization problem described as 
+\begin{equation}
+\label{equa_loss_minimization}
+\min F(\omega),~~~~~F(\omega)=\frac{1}{n}\sum\limits_{i=1}^n f_i(\omega)+R(\omega).
+\end{equation}
+where $n$ is the size of the training data, and each $f_i$ is the cost function of the $i$-th training data. Note that we assume each $f_i$ is smooth and convex, and the function $F$ is strongly convex. $R(\omega)$ is the regularizer, which is widely used to avoid overfitting.
+
+Gradient descent (GD) is a basic method to solve such optimization problem and is effective for small or moderate-scale datasets. However, since GD passes over the entire training data to compute the full gradient every iteration, when the volume of data is large, the computation cost increase significantly and would affect the performance. 
+
+Stochastic optimization methods mitigates this shortcomings by computing only a small subset of the input data. For example, Stochastic gradient descent (SGD) randomly selects one data sample each iteration, which improves time efficiency a lot. Nevertheless, the stochastic method introduce variance thus can hardly make any progress when the parameters are close to the optimum. Common practice to ensure convergence is decaying learning rate, which incurs a sub-linear convergence rate.
+
+Stochastic average gradient (SAG) \citep{Schmidt:2013ui} and its variant such as SAGA \citep{Defazio:2014vu}, SDCA \citep{ShalevShwartz:2016vy} proves to converge linearly for strongly convex problems but requires to store all the component gradients, which bring in an intolerable memory burden. 
+
+In recent years, the stochastic variance reduces gradient (SVRG) \citep{Johnson:9MAvkbgy} method is popular and widely used, because it achieves the linear convergence and does not need to store the component gradients. As is shown in Algorithm (\ref{SVRG}), a full gradient is computed occasionally during the inexpensive SGD steps to reduce the variance, dividing the optimization procedure into many $epochs$.
+
+On the basis of SVRG, many variants have been proposed to improve its performance.
+SVRG-BB \citep{Tan2016Barzilai} method uses the BB method proposed by Barzilai and Borwein in \citep{Barzilai1988Two} to compute the step size before each epoch, which generally achieve the same level of sub-optimality as SVRG with the best-tuned step size.
+\textsc{CheapSVRG} \citep{Shah2016Trading} and \textsc{sampleVR} aim at reducing the expensive cost of full gradient computation through using a surrogate with a subset of the training dataset. 
+mS2GD \citep{Liu:2015bx} introduces mini-batching into the computation of stochastic steps to reduce the variance and shows clear advantage when parallel computation is allowed. 
+EMGD \citep{Zhang2013Linear}, SVR-GHT \citep{Li:2016vh}, Prox-SVRG \citep{Xiao:2014vw} and SVRG+second-order information \citep{KolteAccelerating} modify the update rule of stochastic steps, and show advantages to naive SVRG in some cases.
+All these methods proved to obtain improvements on SVRG to some extent. However, there are few papers discussing about how frequently should a full gradient be computed, i.e. how to set the epoch size $m$.
+Most papers set $m = 2n$ or $m = n$ regardless of the learning rate, where $n$ denotes the size of training data. It is recommended that $m = 2n$ for convex problems and $m = 5n$ for non-convex problems in [SVRG], without  theoretical analysis and further experimental verification. 
+It is obvious that $m$ has a great impact on the performance of SVRG. When $m$ is too small, it waste too much time on computing full gradient therefore converges slowly. Contrarily, when $m$ is rather big, the variance increases a lot, decelerating the convergence of training loss.
+As is clearly acknowledged that the optimal $m$ is strongly related to the learning rate $\eta$. 
+According to the analysis of variance in [YaWei], If the update item $\gamma_t$ in each SGD iteration is p-dimensional, and can be denoted by $\gamma_t = (a_{t1}, a_{t2}..., a_{tp})$, after $m$ iterations, the variance $d_m$ holds that $d_m \mathrm{=} \eta^2 \sum\limits_{j=1}^p\left(  \sum\limits_{i=0}^{m-1} a_{ij}  \right)^2$. On the condition that $d_t$ has a upper bound $d^b$ to guarantee convergence, we must set $m$ to be small to avoid high variance if $\eta$ is big. And we could choose a relatively big value for $m$ with a small $\eta$, for purpose of reducing the frequency of time-consuming full gradient computation.
+Our experiments show that the loss function begins to fluctuate after only $n/10$ iterations with very large $\eta$, and keeps reducing for even $20n$ iterations with very small $\eta$. 
+
+In this paper, we propose a novel algorithm: \textsc{smSVRG}, which can adjust the epoch size dynamically. It applies a strategy that the amount of change in parameters are computed at the same interval, if the amount of change of current interval is greater than that of former, the algorithm will finish the current epoch and begin the next epoch. Besides, we analyze and give guidance of how to set the interval size. Based on the analysis, we modify our algorithm as \textsc{smSVRG+}, which show better performance in our experiments. 
+This paper is organized as follows: Section 2 review related work about setting the epoch size of SVRG. Section 3 present the new variant of SVRG, i.e. \textsc{smSVRG}. Section 4 demonstrates the extensive performance of our algorithm. Finally, we conclude this paper.
+
+
+
+\section{Related work}
+Several variants of SVRG focusing on epoch size has been proposed, including SVRG++ \citep{Allen2015Improved}, S2GD \citep{Richtarik:2013te}, SVRG\_Auto\_Epoch \citep{Allen2015Improved} and so on. 
+
+SVRG++ adopts a simple strategy that epoch size $m$ doubles between every consecutive two epochs. This method is absolutely heuristic and sometimes not justified. Our experiments show that when $\eta$ is big or moderate, the exponential growth of $m$ will incur great variance and impairs convergence. 
+
+S2GD designs a probability model of $m$ and shows that a large epoch size is used with a high probability. However it needs to know the lower bound on the strong convexity constant of $F$, which is hard to estimate in practice. Meanwhile, the maximum of stochastic steps per epoch is also a sensitive parameter.
+
+SVRG\_Auto\_Epoch is introduced as an additional improvement of SVRG++. It determines the termination of epoch through the quality of the snapshot full gradient. It records $diff_t = \Vert\nabla f_{i}(\omega_t^s)\mathrm{-}\nabla f_{i}(\tilde{\omega}^{s-1})\Vert$ every iteration $t$ and uses it as a tight upper bound on the variance of the gradient estimator. Although this method is reasonable, it has too much parameters to tune. Moreover, it takes much additional computation for every iterations, which impairs performances significantly. 
+
+Comparing with the above methods, \textsc{smSVRG} is apparently reasonable in intuition and does not need to tune extra parameters. Besides, it takes little additional computation cost and outperform the aforementioned three methods.
+
+%\subsection{Subsection Heading Here}
+%Subsection text here.
+%\subsubsection{Subsubsection Heading Here}
+%Subsubsection text here.
+
+ \begin{algorithm}[t]
+ 	\caption{\textsc{SVRG}}
+	\label{SVRG}
+	\begin{algorithmic}[1]
+	\Require learning rate $\eta$,  epoch size $m_0$, initial point $\tilde{\omega}$
+	\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega})$
+	\For {$s=0, 1, ...$}
+		\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega}_{s})$
+		\State $\omega_0 = \tilde{\omega}_s$
+		%compute the full gradient 
+		\For {$t=0, 1, 2,..$}
+			\State Randomly pick $i_t\in\{1, 2, ..., n\}$
+			\State $\omega_t = \omega_{t-1} - \eta(\nabla f_{i_t} - \nabla f_{i_t}(\tilde{\omega}_s)+\tilde{\mu})$
+		\EndFor
+		\State \textbf{Option \uppercase\expandafter{\romannumeral1}:} $\tilde{\omega}_{s+1} = \omega_{m}$
+		\State \textbf{Option \uppercase\expandafter{\romannumeral2}:} $\tilde{\omega}_{s+1} = \omega_{t}$ for randomly chosen $t \in \{0, ... ,m - 1\}$ 
+	\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+
+
+
+ \section{Speed Maintained SVRG}
+ In this section we describe two novel algorithms: \textsc{smSVRG} and \textsc{smSVRG+}, which can set the appropriate iteration number in each epoch automatically and has superior convergence properties in out experiments.
+ We assume the loss function $F$ and the component functions $f_i$ are convex and $L$-smooth throughout the paper.
+ 
+ \subsection{smSVRG}
+ When we apply gradient descent to convex problem, as the $\omega_t$ will gradually approach the optimal value $\omega^*$, thus the gradient $\nabla F(\omega_t)$ keeps decreasing. Then we have $\Vert\omega_{t+1}-\omega_t\Vert<\Vert\omega_{t}-\omega_{t-1}\Vert$. Considering several iterations, we can also have $\Vert\omega_{t+m_0}-\omega_t\Vert<\Vert\omega_{t}-\omega_{t-m_0}\Vert$. Inspired by this, algorithm \textsc{smSVRG}  set $\Vert\omega_{t+m_0}-\omega_t\Vert>\Vert\omega_{t}-\omega_{t-m_0}\Vert$ as a stop condition in each epoch. 
+ Algorithm \textsc{smSVRG} just require two parameters: learning rate $\eta$, checking interval $m_0$. Note that the difference between SVRG and \textsc{smSVRG} is that in the latter we adjust the epoch size dynamically, instead of using a prefixed $m$ as in SVRG. In each epoch, \textsc{smSVRG} compute the inequality $$\Vert\omega_{t}-\omega_{t-m_0}\Vert>\Vert\omega_{t-m_0}-\omega_{t-2m_0}\Vert$$ every $m_0$ iterations, if the inequality holds the algorithm will break the inner loop and begin the next epoch.
+ 
+ \subsection{Optimal Choice of checking interval}
+ \label{secOCCI}
+ In \textsc{smSVRG}, we use the $\Delta\omega$ of several iterations to detect when loss function begin to fluctuate and fail to converge. However, how to choose a suitable value of checking interval i.e. $m_0$ becomes an important issue. In this section, we analyze the effects of setting different $m_0$ and provide guidance on setting a optimal value.
+ 
+ First, as the variance incurred by SGD iterations cannot be ignored, when we set $m_0$ to be small, the variance of $\Vert\omega_{t}-\omega_{t-m_0}\Vert$ is too big thus the confidence of the inequality is low. As a result, the inequality may holds because of variance when the loss function is still decreasing rapid, which wastes much time on computing full gradients. We use $C(m_0)$ to denote the confidence of inequality holds. It is obvious that $C(m_0)$ is a monotonically increasing function of $m_0$.
+ 
+ When we set $m_0$ to be relatively big, the variance becomes small and the confidence of inequality holds is high. However, it will be too late to detect the fluctuation of objective function and waste much time to compute iterations which make no process for optimizing the objective function. We use $D_s(m_0)$ to denote the $Absolute Delay$ of detecting fluctuation. Furthermore, the $Absolute Delay$ makes different effects depending on the epoch size, so it is better to consider the $Relative Delay$:
+ $$D_r(m_0)=\frac{D_s(m_0)}{es+n}$$
+ Note that $es$ denote the number of iterations in a specific epoch and $n$ denotes the size of the dataset. Function $D_r(m_0)$ is also monotonically increasing with respect to $m_0$.
+
+It is natural that we want to choice a suitable $m_0$  which can achieve a big $C(m_0)$ and a small $D_r(m_0)$. In order to obtain a trade-off between $C(m_0)$ and $D_r(m_0)$, we convert the parameter choosing problem to the following maximization problem:
+\begin{equation}
+\label{minform0}
+\begin{split}
+m_0 = \max\limits_{m_0} C(m_0)-D_r(m_0)\\
+ = \max\limits_{m_0} C(m_0)-\frac{D_s(m_0)}{es+n}\\
+\textrm{s.t.} 0<m_0<n
+\end{split}
+\end{equation}
+Note that we do not have the exact expression of $C$ and $D_s$, instead, we only know their monotonicity. Nonetheless, it is enough to guide us to set the parameter $m_0$. From (\ref{minform0}) we can obtain the following conclusions:
+
+1. When epoch size $es$ is small, the $D_s$ tends to be more important than $C$. Hence we should set $m_0$ to be relatively small to maximize the objective function. On the contrary, it is recommended to set $m_0$ to be big. In spirit of this, we can set $m_0$ to be proportional to the iteration number of previous epoch.
+
+2. According to our experiment on SVRG, when the learning rate $\eta$ is large, the loss function begin to fluctuate after merely $n/10$ iterations, so we should set the initial $m_0$ to the same order of magnitude as $10^{-1} \times n$
+ 
+ \subsection{\textsc{smSVRG+}}
+ On the basis of the analysis of section \ref{secOCCI}, we improve our algorithm \textsc{smSVRG} through dynamically adjusting the checking interval, instead of a constant value. According to the two conclusions, we initialize the $m_0$ to be $0.1n$ and set it to be $(int(es/n)+1) * (0.1n)$ in each epoch, where $es$ denote the iteration number of previous epoch. With this strategy , when each epoch seems to be capable of enduring more iterations, \textsc{smSVRG+} will expand the checking interval to improve the confidence, avoiding stopping the epoch ahead of time due to variance.
+ 
+ 
+ \begin{algorithm}
+ 	\caption{\textsc{smSVRG}}
+	\label{smSVRG}
+	\begin{algorithmic}[1]
+	\Require learning rate $\eta$, checking interval $m_0$, initial point $\tilde{\omega}$
+	\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega})$
+	\For {$s=0, 1, ...$}
+		\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega}_{s})$
+		\State $\omega_0 = \tilde{\omega}_s$
+		%compute the full gradient 
+		\For {$t=0, 1, 2,..$}
+			\If{$t>m_0$ and $t\%m_0=0$ and $\Vert \omega_t - \omega_{t-m_0}\Vert>\Vert \omega_{t-m_0} - \omega_{t-2m_0}\Vert$}
+			\State break
+			\EndIf
+			\State Randomly pick $i_t\in\{1, 2, ..., n\}$
+			\State $\omega_t = \omega_{t-1} - \eta(\nabla f_{i_t} - \nabla f_{i_t}(\tilde{\omega}_s)+\tilde{\mu})$
+		\EndFor		
+		\State $\tilde{\omega}_{s+1} = \omega_{m}$
+	\EndFor
+	\State \Return $\tilde{\omega}_{s+1}$
+	\end{algorithmic}
+\end{algorithm}
+
+ \begin{algorithm}
+ 	\caption{\textsc{smSVRG+}}
+	\label{smSVRG+}
+	\begin{algorithmic}[1]
+	\Require learning rate $\eta$, checking interval $m_0$, initial point $\tilde{\omega}$
+	\Initial $m_0=0.1n$
+	\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega})$
+	\For {$s=0, 1, ...$}
+		\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega}_{s})$
+		\State $\omega_0 = \tilde{\omega}_s$
+		%compute the full gradient 
+		\For {$t=0, 1, 2,..$}
+			\If{$t>m_0$ and $t\%m_0=0$ and $\Vert \omega_t - \omega_{t-m_0}\Vert>\Vert \omega_{t-m_0} - \omega_{t-2m_0}\Vert$}
+			\State break
+			\EndIf
+			\State Randomly pick $i_t\in\{1, 2, ..., n\}$
+			\State $\omega_t = \omega_{t-1} - \eta(\nabla f_{i_t} - \nabla f_{i_t}(\tilde{\omega}_s)+\tilde{\mu})$
+		\EndFor
+		\State $es = t$	
+		\State $m_0$ = ($int(es/n)+1) * (0.1n)$
+		\State $\tilde{\omega}_{s+1} = \omega_{m}$
+	\EndFor
+	\State \Return $\tilde{\omega}_{s+1}$
+	\end{algorithmic}
+\end{algorithm}
+ 
+ \begin{figure*}[htb]
+\centering
+\subfigure[ijcnn1 $\eta=0.5$]{\includegraphics[width=0.24\linewidth]{cmijcnn105}\label{cmijcnn105}}
+\subfigure[ijcnn1 $\eta=0.05$]{\includegraphics[width=0.24\linewidth]{cmijcnn1005}\label{cmijcnn1005}}
+\subfigure[ijcnn1 $\eta=0.01$]{\includegraphics[width=0.24\linewidth]{cmijcnn1001}\label{cmijcnn1001}}
+\subfigure[ijcnn1 $\eta=0.001$]{\includegraphics[width=0.24\linewidth]{cmijcnn10001}\label{cmijcnn10001}}
+\label{cmijcnn1}
+\caption{Comparison of \textsc{smSVRG}, \textsc{smSVRG+}, SVRG++, S2GD}
+\end{figure*}
+ 
+ \section{Numerical Experiments}
+ %\subsection{Experimental settings}
+ In this section, we conduct some experiments to demonstrate the efficiency of our proposed algorithm. We evaluate our algorithm on four training datasets, which are public on the LIBSVM website\footnote{http://www.csie.ntu.edu.tw/$\sim$cjlin/libsvmtools/datasets/}. In our experiments, \textsc{smSVRG} is applied for two standard machine learning tasks: $l2$-regularized logistic regression and $l2$-regularized ridge regression.
+ 
+ The $l2$-regularized logistic regression task is conducted on the two datasets: ijcnn1, a9a. Since the label of each instance in these datasets is set to be 1 or -1, the loss function of $l2$-regularized logistic regression task is:
+\begin{equation}
+\label{logistic_reg}
+\min\limits_\omega \frac{1}{n}\sum\limits_{i=1}^n \log(1+e^{-y_i \omega^\mathrm{T} x_i }) + \lambda \parallel \omega \parallel^2.
+\end{equation}
+The $l2$-regularized ridge regression task is conducted on the four datasets: abalone, cadata, cpusmall, space\_ga. The loss function of $l2$-regularized ridge regression task is:
+\begin{equation}
+\label{ridge_reg}
+\min\limits_\omega \frac{1}{n}\sum\limits_{i=1}^n\left(\omega^{\mathrm{T}}x_i-y_i\right)^2 + \lambda \parallel \omega \parallel^2.
+\end{equation}
+We scale the value of all features to $[-1,1]$ and set the weighting parameter $\lambda$ to $10^{-4}$ for all evaluations. 
+In all figures, the $x$-axis denotes the computational cost, which is measured by the number of gradient computation divided by the size of training data, i.e. $n$. The $y$-axis denotes training loss residual, i.e. $F(\tilde{\omega}_s) - F(\omega^{*})$. Note that the optimum $\omega^*$ is estimated by running the gradient descent for a long time. Our numerical experiments include two parts: comparing with existing related methods and comparing with SVRG of different epoch sizes. Both experiments show the superior performance of our methods. 
+
+\begin{table}[]
+\centering
+\caption{Detail information of datasets and models}
+\label{data information}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Dataset           & size & dimension & model & $\lambda$ \\ \hline
+ijcnn1            &  49990 &  22 &   logistic    &  $10^{-4}$         \\
+a9a               &   32561&123   &     logistic  &      $10^{-4}$     \\ 
+YearPredictionMSD & 463715  &  90 &    linear  &      $10^{-4}$     \\
+cada              & 20640  &8   &     linear  &    $10^{-4}$       \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Comparing with existing related methods}
+In this section, we compare our \textsc{smSVRG}(Algorithm \ref{smSVRG}) and \textsc{smSVRG+}(Algorithm \ref{smSVRG+}) with two aforementioned existing methods: SVRG++ and S2GD. We do not compare with SVRG\_Auto\_Epoch in that we find its termination condition of epoch is never satisfied and keeps doing SGD iteration, resulting in nonconvegence. For SVRG++, we initialize $m = n$. For S2GD, we set the maximum of $m$ to be $4n$ and set $gamma$ to be $0$. For both \textsc{smSVRG} and \textsc{smSVRG+}, we set the checking interval $m_0$ to be $10/n$.
+We test these methods by logistic regression on dataset $ijcnn1$. 
+From Figures \ref{cmijcnn1} we can see that at most times SVRG++ fluctuates violently and fails to converge owing to the large variance caused by too excessive epoch size. It only performs well when $\eta$ is quite small.
+Figures \ref{cmijcnn105}, \ref{cmijcnn1005} show that both \textsc{smSVRG} and \textsc{smSVRG+} converge rapidly with relatively large $\eta$ for they can constrain $m$ in a small range. However, it can be seen from Figures \ref{cmijcnn1001}, \ref{cmijcnn10001}, when $\eta$ decreases to small values, the performance of \textsc{smSVRG} drop gradually and even become inferior to others, while \textsc{smSVRG+} always performs the best of all. The main reason is that  when $\eta$ is small, more iterations can be computed in one epoch, thus checking the inequality frequently will resulting algorithm to stop epochs too early because of variance. The strategy of increase checking interval applied by \textsc{smSVRG+} can reduce the variance. Hence it always outperform other methods.
+
+
+
+\begin{figure*}[ht]
+\centering
+\subfigure[ijcnn1 $\eta=0.5$]{\includegraphics[width=0.5\columnwidth]{ijcnn105}\label{ijcnn105}}
+\subfigure[ijcnn1 $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{ijcnn1005}\label{ijcnn1005}}
+\subfigure[ijcnn1 $\eta=0.01$]{\includegraphics[width=0.5\columnwidth]{ijcnn1001}\label{ijcnn1001}}
+\subfigure[ijcnn1 $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{ijcnn10001}\label{ijcnn10001}}
+
+\subfigure[a9a $\eta=0.3$]{\includegraphics[width=0.5\columnwidth]{a9a03}\label{a9a03}}
+\subfigure[a9a $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{a9a005}\label{a9a005}}
+\subfigure[a9a $\eta=0.02$]{\includegraphics[width=0.5\columnwidth]{a9a002}\label{a9a002}}
+\subfigure[a9a $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{a9a0001}\label{a9a0001}}
+\label{figure_logistic}
+\caption{Generally, \textsc{smSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression}
+\end{figure*}
+
+
+
+\begin{figure*}[t]
+\subfigure[YearPredictionMSD $\eta=0.01$]{\includegraphics[width=0.5\columnwidth]{Year_scale001}\label{Year_scale001}}
+\subfigure[YearPredictionMSD $\eta=0.005$]{\includegraphics[width=0.5\columnwidth]{Year_scale0005}\label{Year_scale0005}}
+\subfigure[YearPredictionMSD $\eta=0.002$]{\includegraphics[width=0.5\columnwidth]{Year_scale0002}\label{Year_scale0002}}
+\subfigure[YearPredictionMSD $\eta=0.0001$]{\includegraphics[width=0.5\columnwidth]{Year_scale00001}\label{Year_scale00001}}
+\subfigure[cadata $\eta=0.1$]{\includegraphics[width=0.5\columnwidth]{cadata01}\label{cadata01}}
+\subfigure[cadata $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{cadata005}\label{cadata005}}
+\subfigure[cadata $\eta=0.02$]{\includegraphics[width=0.5\columnwidth]{cadata002}\label{cadata002}}
+\subfigure[cadata $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{cadata0001}\label{cadata0001}}
+\label{figure_linear}
+\caption{Generally, \textsc{smSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized linear regression}
+\end{figure*}
+
+
+ \subsection{Comparing with SVRG of different epoch sizes}
+ In order to demonstrate the outstanding adaptability of our algorithm with different learning rate in any case, we conduct sufficient experiments. Since \textsc{smSVRG+} performs better than \textsc{smSVRG}, we only compare the former with SVRG. The experiments are tested by logistic regression and ridge regression on four datasets.
+ For SVRG, we set epoch size $m$ as four different values: $n, 2n, 4n, 10n$. The first three values are chosen for the reason that they are commonly used in many papers. Besides, our experiments show that epoch size bigger that $10n$ perform almost the same. It is easy to comprehend as the full gradient computation becomes less important when epoch size is rather big. In all figures, the dashed lines correspond to SVRG with fixed epoch size given in the legends of the figures, while the green solid lines correspond to \textsc{smSVRG}
+ 
+It can be seen from Figures \ref{ijcnn105} to \ref{cadata0001} that \textsc{smSVRG} can always have the similar performance as SVRG with most suitable epoch size. We observe that when $\eta$ is big, setting $m$ to be a small value, i.e. $n$, can achieve better performance. The main reason is that when $\eta$ is big, the variance becomes big simultaneously, so $m$ must be set  small to constrain the variance. As $\eta$ diminishes, the optimal value of $m$ increases, which means that the algorithm can tolerate more variance induced by extra iterations. As illustrated in Figures, our method is comparable to and sometimes even better than SVRG with best-tuned epoch sizes when learning rate is large or medium. However, if $\eta$ is set to be too small, \textsc{smSVRG} performs slightly inferior to  SVRG with large epoch sizes, but outperforms SVRG with recommended epoch sizes, i.e. $n$ and $2n$. It is noting that setting $\eta$ to be too small is not a practical approach when using SVRG or its variants, because the convergence rate will be extremely low. Therefore, the sub-optimal performance of \textsc{smSVRG} with very small $\eta$ is acceptable.
+ 
+
+ 
+
+\section{Conclusion}
+1111
+
+111
+
+111
+
+111
+
+111
+
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+%\begin{thebibliography}{1}
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+ % 0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%\end{thebibliography}
+%\newpage
+\newpage
+\bibliographystyle{plain}
+\bibliography{reference}
+
+
+% that's all folks
+\end{document}
+
+

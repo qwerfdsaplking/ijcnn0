@@ -1,0 +1,87 @@
+\begin{thebibliography}{10}
+
+\bibitem{Allen2015Improved}
+Zeyuan Allen-Zhu and Yang Yuan.
+\newblock {Improved SVRG for non-strongly-convex or sum-of-non-convex
+  objectives}.
+\newblock In {\em International Conference on Machine Learning}, New York, USA,
+  June 2016.
+
+\bibitem{Barzilai1988Two}
+Jonathan Barzilai and Jonathan~M. Borwein.
+\newblock Two-point step size gradient methods.
+\newblock {\em IMA Journal of Numerical Analysis}, 8(1):141--148, 1988.
+
+\bibitem{Defazio:2014vu}
+Aaron Defazio, Francis Bach, and Simon Lacoste-Julien.
+\newblock Saga: A fast incremental gradient method with support for
+  non-strongly convex composite objectives.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  1646--1654, Montr{\'e}al, Canda, December 2014.
+
+\bibitem{Johnson:9MAvkbgy}
+R~Johnson and T~Zhang.
+\newblock Accelerating stochastic gradient descent using predictive variance
+  reduction.
+\newblock {\em Advances in Neural Information Processing Systems}, pages
+  315--323, December 2013.
+
+\bibitem{KolteAccelerating}
+Ritesh Kolte and Murat Erdogdu.
+\newblock Accelerating svrg via second-order information.
+\newblock 2016.
+
+\bibitem{Liu:2015bx}
+Jakub Kone{\v{c}}n{\`y}, Jie Liu, Peter Richt{\'a}rik, and Martin
+  Tak{\'a}{\v{c}}.
+\newblock Mini-batch semi-stochastic gradient descent in the proximal setting.
+\newblock {\em IEEE Journal of Selected Topics in Signal Processing},
+  10(2):242--255, 2016.
+
+\bibitem{Richtarik:2013te}
+Jakub Kone{\v{c}}n{\`y} and Peter Richt{\'a}rik.
+\newblock Semi-stochastic gradient descent methods.
+\newblock {\em arXiv preprint arXiv:1312.1666}, 2013.
+
+\bibitem{Li:2016vh}
+Xingguo Li, Tuo Zhao, Raman Arora, Han Liu, and Jarvis Haupt.
+\newblock {Stochastic variance reduced optimization for nonconvex sparse
+  learning}.
+\newblock In {\em International Conference on Machine Learning}, New York, USA,
+  June 2016.
+
+\bibitem{Schmidt:2013ui}
+Mark Schmidt, Nicolas~Le Roux, and Francis Bach.
+\newblock Minimizing finite sums with the stochastic average gradient.
+\newblock {\em Mathematical Programming}, pages 1--30, 2016.
+
+\bibitem{Shah2016Trading}
+Vatsal Shah, Megasthenis Asteris, Anastasios Kyrillidis, and Sujay Sanghavi.
+\newblock Trading-off variance and complexity in stochastic gradient descent.
+\newblock {\em arXiv preprint arXiv:1603.06861}, 2016.
+
+\bibitem{ShalevShwartz:2016vy}
+Shai Shalev-Shwartz.
+\newblock {SDCA without duality, regularization, and individual convexity}.
+\newblock In {\em International Conference on Machine Learning}, New York, USA,
+  June 2016.
+
+\bibitem{Tan2016Barzilai}
+Conghui Tan, Shiqian Ma, Yu~Hong Dai, and Yuqiu Qian.
+\newblock Barzilai-borwein step size for stochastic gradient descent.
+\newblock {\em arXiv preprint arXiv:1605.04131}, 2016.
+
+\bibitem{Xiao:2014vw}
+Lin Xiao and Tong Zhang.
+\newblock A proximal stochastic gradient method with progressive variance
+  reduction.
+\newblock {\em SIAM Journal on Optimization}, 24(4):2057--2075, 2014.
+
+\bibitem{Zhang2013Linear}
+Lijun Zhang, Mehrdad Mahdavi, and Rong Jin.
+\newblock Linear convergence with condition number independent access of full
+  gradients.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  980--988, Lake Tahoe, USA, December 2013.
+
+\end{thebibliography}
