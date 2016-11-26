@@ -115,7 +115,8 @@ Fax: (888) 555--1212}}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Stochastic gradient desent (SGD) is widely used for large-scale machine learning optimization but has slow convergence rate due to the high inherent variance. In recent years, the popular Stochastic variance reduced gradient (SVRG) method mitigates this shortcoming, through computing the full-gradient of the entire dataset occasionally. Although many variants of SVRG have been proposed to improve the performance, few papers discuss how frequently should a full-gradient be computed. In our paper, we propose \textsc{smSVRG}, a variant of SVRG, but instead of fixing the epoch size, it applies an real-time checking strategy to adjust the epoch size dynamically. Moreover, we provide the guidance of choosing the checking interval and propose an improved method \textsc{smSVRG+}, which is comparable to and sometimes even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions.
+    Stochastic gradient desent (SGD) is widely used for large-scale machine learning optimization, but has slow convergence rate due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full-gradient of the entire dataset occasionally. However, conventional SVRG and its variants usually need a hyper-parameter to identify when to compute such the full gradient, which is essential to the covergene performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in parctical machine learning tasks.  In our paper, we propose a new stochastic gradient descent with variance reduction technique named \textsc{smSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{smSVRG+}, which is comparable to and even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions.
+
 
 \end{abstract}
 
@@ -135,16 +136,16 @@ Stochastic gradient desent (SGD) is widely used for large-scale machine learning
 
 \section{Introduction}
 % no \IEEEPARstart
-In machine learning, it is common to encounter the following optimization problem described as 
+Many machine learning tasks such as logistic regression and linear regression can be formulated to be an optimizaton problem which is described as 
 \begin{equation}
 \label{equa_loss_minimization}
 \min F(\omega),~~~~~F(\omega)=\frac{1}{n}\sum\limits_{i=1}^n f_i(\omega)+R(\omega).
 \end{equation}
-where $n$ is the size of the training data, and each $f_i$ is the cost function of the $i$-th training data. Note that we assume each $f_i$ is smooth and convex, and the function $F$ is strongly convex. $R(\omega)$ is the regularizer, which is widely used to avoid overfitting.
+where $n$ is the size of the training data. $F(\omega)$ means the loss function or training loss of a machine model, and $\omega$ is its parameter. $R(\omega)$ is the regularizer, which is widely used to avoid overfitting. It is noting that the total number of instances, i.e. $n$ becomes very large with the proliferation of data. 
 
-Gradient descent (GD) is a basic method to solve such optimization problem and is effective for small or moderate-scale datasets. However, since GD passes over the entire training data to compute the full gradient every iteration, when the volume of data is large, the computation cost increase significantly and would affect the performance. 
+Gradient Descent (GD) is a basic method to solve such the optimization problem. The gradient of $F(\omega)$  is obtained by passing over the entire training data, which is extremely time-consuming when the size of training data, i.e. $n$ becomes large.  Besides, GD is an iterative-convergent algorithm, that is, the parameter, i.e. $\omega$, usually needs thousands of iterations to be converged.   Since GD needs to compute the  gradient of  $F(\omega)$ every iteration, when the volume of data is large, the computation cost increases sharply and impairs the convergent performance significantly. 
 
-Stochastic optimization methods mitigates this shortcomings by computing only a small subset of the input data. For example, Stochastic gradient descent (SGD) randomly selects one data sample each iteration, which improves time efficiency a lot. Nevertheless, the stochastic method introduce variance thus can hardly make any progress when the parameters are close to the optimum. Common practice to ensure convergence is decaying learning rate, which incurs a sub-linear convergence rate.
+Stochastic Gradient Descent (SGD) mitigates this shortcoming by replacing the calculation of $\nabla F(\omega)$ with a stochastic gradient $\nabla f_i(\omega)$ with $i\in\{1,2, ..., n\}$. In SGD, $i$ is selected randomly  from the entire training data. Thus, SGD outperforms GD on the time efficiency significantly. Take the expectation of $i$, we obtain $\mathbb{\nabla f_i(\omega)} = \nabla F(\omega)$. The difference between $\nabla f_i(\omega)$ and  $\nabla F(\omega)$ is represented \emph{variance} which makes any progress when the parameters are close to the optimum. Common practice to ensure convergence is decaying learning rate, which incurs a sub-linear convergence rate.
 
 Stochastic average gradient (SAG) \citep{Schmidt:2013ui} and its variant such as SAGA \citep{Defazio:2014vu}, SDCA \citep{ShalevShwartz:2016vy} proves to converge linearly for strongly convex problems but requires to store all the component gradients, which bring in an intolerable memory burden. 
 
