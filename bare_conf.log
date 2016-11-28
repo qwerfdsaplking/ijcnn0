@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.10.27)  28 NOV 2016 10:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.10)  28 NOV 2016 20:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **bare_conf.tex
 (./bare_conf.tex
-LaTeX2e <2016/03/31>
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (./IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -20,7 +20,7 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -114,41 +114,41 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen125
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/10 v2.15b AMS math features
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
 \ex@=\dimen126
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen127
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count94
-LaTeX Info: Redefining \frac on input line 199.
+LaTeX Info: Redefining \frac on input line 210.
 \uproot@=\count95
 \leftroot@=\count96
-LaTeX Info: Redefining \overline on input line 297.
+LaTeX Info: Redefining \overline on input line 306.
 \classnum@=\count97
 \DOTSCASE@=\count98
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box28
 \strutbox@=\box29
 \big@size=\dimen128
-LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count99
 \c@MaxMatrixCols=\count100
 \dotsspace@=\muskip10
@@ -169,20 +169,20 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \multlinegap=\skip45
 \multlinetaggap=\skip46
 \mathdisplay@stack=\toks19
-LaTeX Info: Redefining \[ on input line 2739.
-LaTeX Info: Redefining \] on input line 2740.
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks20
 \thm@bodyfont=\toks21
@@ -194,48 +194,48 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip49
 \dth@everypar=\toks25
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/times.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/helvet.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks26
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/courier.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 96.
+Package graphics Info: Driver file: pdftex.def on input line 94.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count106
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/subfigure/subfigure.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip50
 \subfigcapskip=\skip51
@@ -251,16 +251,16 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-(/usr/local/texlive/2016/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip54
 \subfig@bottom=\skip55
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/mdwtools/mdwmath.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/mdwtools/mdwmath.sty
 Package: mdwmath 1996/04/11 1.1 Nice mathematical things
 \sq@sqrt=\count111
 LaTeX Info: Redefining \sqrt on input line 84.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/mdwtools/mdwtab.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/mdwtools/mdwtab.sty
 Package: mdwtab 1998/04/28 1.9 Table typesetting with style
 \tab@state=\count112
 \tab@columns=\count113
@@ -279,8 +279,8 @@ Package: mdwtab 1998/04/28 1.9 Table typesetting with style
 \fn@notes=\box30
 \fn@width=\dimen147
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2016/04/27 v1.618033 publication quality tables
+(/usr/local/texlive/2015/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen148
 \lightrulewidth=\dimen149
 \cmidrulewidth=\dimen150
@@ -299,11 +299,11 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@lastruleclass=\count117
 \@thisrulewidth=\dimen160
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count118
 \float@exts=\toks29
@@ -311,28 +311,28 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box32
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks31
 \c@algorithm=\count119
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/pifont.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/upzd.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Try loading font information for U+psy on input line 64.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/upsy.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -348,19 +348,19 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip60
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/preprint/balance.sty
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/preprint/balance.sty
 Package: balance 1999/02/23 4.3 (PWD)
 \oldvsize=\dimen161
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2016/02/27 v1.2a Bold Symbol Support (DPC/FMi)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
 \symboldletters=\mathgroup7
 \symboldsymbols=\mathgroup8
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 142.
-LaTeX Info: Redefining \bm on input line 208.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/ulem/ulem.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box33
 \UL@hyphenbox=\box34
 \UL@skip=\skip61
@@ -372,11 +372,11 @@ LaTeX Info: Redefining \bm on input line 208.
 Package: ulem 2012/05/18
 \ULdepth=\dimen164
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/multirow/multirow.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen165
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/03/31 v1.8m multicolumn formatting (FMi)
 \c@tracingmulticols=\count128
 \mult@box=\box36
 \multicol@leftmargin=\dimen166
@@ -424,10 +424,10 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \colbreak@box=\box61
 \mc@col@check@num=\count136
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box62
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/footmisc/footmisc.sty
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks33
 \footnotemargin=\dimen175
@@ -441,10 +441,10 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/extarrows/extarrows.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/extarrows/extarrows.sty
 Package: extarrows 2008/05/15 v1.0b Some extensible arrows
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip64
 \bibsep=\skip65
@@ -468,7 +468,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 
 -- Lines per column: 56 (exact).
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count139
 \scratchdimen=\dimen176
@@ -481,39 +481,40 @@ LaTeX Font Info:    ... okay on input line 53.
 \MPnumerator=\count143
 \makeMPintoPDFobject=\count144
 \everyMPtoPDFconversion=\toks35
-) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
@@ -522,9 +523,9 @@ Package etexcmds Info: Could not find \expanded.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+(grfext)             \AppendGraphicsExtensions on input line 452.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -532,53 +533,161 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/sc' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 118.
 LaTeX Font Info:    Try loading font information for U+msa on input line 140.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 140.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+) [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 4595) in paragraph at lines 173--174
+Underfull \hbox (badness 4595) in paragraph at lines 172--173
 []\OT1/ptm/m/n/10 Several vari-ants of SVRG fo-cus-ing on epoch size
  []
 
 
-Underfull \hbox (badness 1708) in paragraph at lines 173--174
+Underfull \hbox (badness 1708) in paragraph at lines 172--173
 \OT1/ptm/m/n/10 has been pro-posed, in-clud-ing SVRG++ [[]], S2GD [[]],
  []
 
 [2] <cmijcnn105.pdf, id=21, 578.16pt x 433.62pt>
 File: cmijcnn105.pdf Graphic file (type pdf)
  <use cmijcnn105.pdf>
-Package pdftex.def Info: cmijcnn105.pdf used on input line 301.
+Package pdftex.def Info: cmijcnn105.pdf used on input line 300.
 (pdftex.def)             Requested size: 123.84283pt x 92.88242pt.
 
 <cmijcnn1005.pdf, id=22, 578.16pt x 433.62pt>
 File: cmijcnn1005.pdf Graphic file (type pdf)
  <use cmijcnn1005.pdf>
-Package pdftex.def Info: cmijcnn1005.pdf used on input line 302.
+Package pdftex.def Info: cmijcnn1005.pdf used on input line 301.
 (pdftex.def)             Requested size: 123.84283pt x 92.88242pt.
 
 <cmijcnn1001.pdf, id=23, 578.16pt x 433.62pt>
 File: cmijcnn1001.pdf Graphic file (type pdf)
  <use cmijcnn1001.pdf>
-Package pdftex.def Info: cmijcnn1001.pdf used on input line 303.
+Package pdftex.def Info: cmijcnn1001.pdf used on input line 302.
 (pdftex.def)             Requested size: 123.84283pt x 92.88242pt.
 
 <cmijcnn10001.pdf, id=24, 578.16pt x 433.62pt>
 File: cmijcnn10001.pdf Graphic file (type pdf)
  <use cmijcnn10001.pdf>
-Package pdftex.def Info: cmijcnn10001.pdf used on input line 304.
+Package pdftex.def Info: cmijcnn10001.pdf used on input line 303.
 (pdftex.def)             Requested size: 123.84283pt x 92.88242pt.
  [3]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 327.
+               Default added (so using `tbp') on input line 326.
+
+<ijcnn105.pdf, id=32, 578.16pt x 433.62pt>
+File: ijcnn105.pdf Graphic file (type pdf)
+ <use ijcnn105.pdf>
+Package pdftex.def Info: ijcnn105.pdf used on input line 350.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<ijcnn1005.pdf, id=33, 578.16pt x 433.62pt>
+File: ijcnn1005.pdf Graphic file (type pdf)
+ <use ijcnn1005.pdf>
+Package pdftex.def Info: ijcnn1005.pdf used on input line 351.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<ijcnn1001.pdf, id=34, 578.16pt x 433.62pt>
+File: ijcnn1001.pdf Graphic file (type pdf)
+ <use ijcnn1001.pdf>
+Package pdftex.def Info: ijcnn1001.pdf used on input line 352.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<ijcnn10001.pdf, id=35, 578.16pt x 433.62pt>
+File: ijcnn10001.pdf Graphic file (type pdf)
+ <use ijcnn10001.pdf>
+Package pdftex.def Info: ijcnn10001.pdf used on input line 353.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<a9a03.pdf, id=36, 578.16pt x 433.62pt>
+File: a9a03.pdf Graphic file (type pdf)
+ <use a9a03.pdf>
+Package pdftex.def Info: a9a03.pdf used on input line 360.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<a9a005.pdf, id=37, 578.16pt x 433.62pt>
+File: a9a005.pdf Graphic file (type pdf)
+ <use a9a005.pdf>
+Package pdftex.def Info: a9a005.pdf used on input line 361.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<a9a002.pdf, id=38, 578.16pt x 433.62pt>
+File: a9a002.pdf Graphic file (type pdf)
+ <use a9a002.pdf>
+Package pdftex.def Info: a9a002.pdf used on input line 362.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<a9a0001.pdf, id=39, 578.16pt x 433.62pt>
+File: a9a0001.pdf Graphic file (type pdf)
+ <use a9a0001.pdf>
+Package pdftex.def Info: a9a0001.pdf used on input line 363.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<Year_scale001.pdf, id=40, 578.16pt x 433.62pt>
+File: Year_scale001.pdf Graphic file (type pdf)
+ <use Year_scale001.pdf>
+Package pdftex.def Info: Year_scale001.pdf used on input line 371.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<Year_scale0005.pdf, id=41, 578.16pt x 433.62pt>
+File: Year_scale0005.pdf Graphic file (type pdf)
+ <use Year_scale0005.pdf>
+Package pdftex.def Info: Year_scale0005.pdf used on input line 372.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<Year_scale0002.pdf, id=42, 578.16pt x 433.62pt>
+File: Year_scale0002.pdf Graphic file (type pdf)
+ <use Year_scale0002.pdf>
+Package pdftex.def Info: Year_scale0002.pdf used on input line 373.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<Year_scale00001.pdf, id=43, 578.16pt x 433.62pt>
+File: Year_scale00001.pdf Graphic file (type pdf)
+ <use Year_scale00001.pdf>
+Package pdftex.def Info: Year_scale00001.pdf used on input line 374.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata01.pdf, id=44, 578.16pt x 433.62pt>
+File: cadata01.pdf Graphic file (type pdf)
+ <use cadata01.pdf>
+Package pdftex.def Info: cadata01.pdf used on input line 380.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata005.pdf, id=45, 578.16pt x 433.62pt>
+File: cadata005.pdf Graphic file (type pdf)
+ <use cadata005.pdf>
+Package pdftex.def Info: cadata005.pdf used on input line 381.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata002.pdf, id=46, 578.16pt x 433.62pt>
+File: cadata002.pdf Graphic file (type pdf)
+ <use cadata002.pdf>
+Package pdftex.def Info: cadata002.pdf used on input line 382.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata0001.pdf, id=47, 578.16pt x 433.62pt>
+File: cadata0001.pdf Graphic file (type pdf)
+ <use cadata0001.pdf>
+Package pdftex.def Info: cadata0001.pdf used on input line 383.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+
+Package natbib Warning: Citation `aaa' on page 4 undefined on input line 390.
+
+
+Package natbib Warning: Citation `bbb' on page 4 undefined on input line 390.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+[]\OT1/ptm/m/n/10 Since \OT1/ptm/m/sc/10 smSVRG+ \OT1/ptm/m/n/10 per-forms bet-
+ter than \OT1/ptm/m/sc/10 smSVRG\OT1/ptm/m/n/10 ,
+ []
 
 [4 <./cmijcnn105.pdf> <./cmijcnn1005.pdf
 
@@ -592,115 +701,10 @@ usion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cmijcnn10001.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
->] <ijcnn105.pdf, id=217, 578.16pt x 433.62pt>
-File: ijcnn105.pdf Graphic file (type pdf)
- <use ijcnn105.pdf>
-Package pdftex.def Info: ijcnn105.pdf used on input line 353.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+>]
+Underfull \vbox (badness 1292) has occurred while \output is active []
 
-<ijcnn1005.pdf, id=218, 578.16pt x 433.62pt>
-File: ijcnn1005.pdf Graphic file (type pdf)
- <use ijcnn1005.pdf>
-Package pdftex.def Info: ijcnn1005.pdf used on input line 354.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<ijcnn1001.pdf, id=219, 578.16pt x 433.62pt>
-File: ijcnn1001.pdf Graphic file (type pdf)
- <use ijcnn1001.pdf>
-Package pdftex.def Info: ijcnn1001.pdf used on input line 355.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<ijcnn10001.pdf, id=220, 578.16pt x 433.62pt>
-File: ijcnn10001.pdf Graphic file (type pdf)
- <use ijcnn10001.pdf>
-Package pdftex.def Info: ijcnn10001.pdf used on input line 356.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<a9a03.pdf, id=221, 578.16pt x 433.62pt>
-File: a9a03.pdf Graphic file (type pdf)
- <use a9a03.pdf>
-Package pdftex.def Info: a9a03.pdf used on input line 358.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<a9a005.pdf, id=222, 578.16pt x 433.62pt>
-File: a9a005.pdf Graphic file (type pdf)
- <use a9a005.pdf>
-Package pdftex.def Info: a9a005.pdf used on input line 359.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<a9a002.pdf, id=223, 578.16pt x 433.62pt>
-File: a9a002.pdf Graphic file (type pdf)
- <use a9a002.pdf>
-Package pdftex.def Info: a9a002.pdf used on input line 360.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<a9a0001.pdf, id=224, 578.16pt x 433.62pt>
-File: a9a0001.pdf Graphic file (type pdf)
- <use a9a0001.pdf>
-Package pdftex.def Info: a9a0001.pdf used on input line 361.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<Year_scale001.pdf, id=225, 578.16pt x 433.62pt>
-File: Year_scale001.pdf Graphic file (type pdf)
- <use Year_scale001.pdf>
-Package pdftex.def Info: Year_scale001.pdf used on input line 369.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<Year_scale0005.pdf, id=226, 578.16pt x 433.62pt>
-File: Year_scale0005.pdf Graphic file (type pdf)
- <use Year_scale0005.pdf>
-Package pdftex.def Info: Year_scale0005.pdf used on input line 370.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<Year_scale0002.pdf, id=227, 578.16pt x 433.62pt>
-File: Year_scale0002.pdf Graphic file (type pdf)
- <use Year_scale0002.pdf>
-Package pdftex.def Info: Year_scale0002.pdf used on input line 371.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<Year_scale00001.pdf, id=228, 578.16pt x 433.62pt>
-File: Year_scale00001.pdf Graphic file (type pdf)
- <use Year_scale00001.pdf>
-Package pdftex.def Info: Year_scale00001.pdf used on input line 372.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<cadata01.pdf, id=229, 578.16pt x 433.62pt>
-File: cadata01.pdf Graphic file (type pdf)
- <use cadata01.pdf>
-Package pdftex.def Info: cadata01.pdf used on input line 373.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<cadata005.pdf, id=230, 578.16pt x 433.62pt>
-File: cadata005.pdf Graphic file (type pdf)
- <use cadata005.pdf>
-Package pdftex.def Info: cadata005.pdf used on input line 374.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<cadata002.pdf, id=231, 578.16pt x 433.62pt>
-File: cadata002.pdf Graphic file (type pdf)
- <use cadata002.pdf>
-Package pdftex.def Info: cadata002.pdf used on input line 375.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-<cadata0001.pdf, id=232, 578.16pt x 433.62pt>
-File: cadata0001.pdf Graphic file (type pdf)
- <use cadata0001.pdf>
-Package pdftex.def Info: cadata0001.pdf used on input line 376.
-(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
-
-(./bare_conf.bbl)
-
-** Conference Paper **
-Before submitting the final camera ready copy, remember to:
-
- 1. Manually equalize the lengths of two columns on the last page
- of your paper;
-
- 2. Ensure that any PostScript and/or PDF output post-processing
- uses only Type 1 fonts and that every step in the generation
- process uses the appropriate paper size.
-
-[5] [6 <./ijcnn105.pdf> <./ijcnn1005.pdf
+ [5 <./ijcnn105.pdf> <./ijcnn1005.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ijcnn1005.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
@@ -744,11 +748,22 @@ nclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Year_scale00001.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
-> <./cadata01.pdf
+>] (./bare_conf.bbl)
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cadata01.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
-> <./cadata005.pdf
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+
+Package natbib Warning: There were undefined citations.
+
+[6 <./cadata01.pdf> <./cadata005.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cadata005.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
@@ -762,37 +777,38 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cadata0001.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
 >] (./bare_conf.aux) ) 
 Here is how much of TeX's memory you used:
- 5520 strings out of 493014
- 80863 string characters out of 6133350
- 162569 words of memory out of 5000000
- 8887 multiletter control sequences out of 15000+600000
+ 5516 strings out of 493089
+ 80792 string characters out of 6134842
+ 163144 words of memory out of 5000000
+ 8826 multiletter control sequences out of 15000+600000
  50468 words of font info for 108 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 38i,17n,26p,1510b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/
-8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (6 pages, 446310 bytes).
+ 38i,17n,26p,1420b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/
+8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/urw/times/utmri8a.pfb>
+Output written on bare_conf.pdf (6 pages, 452258 bytes).
 PDF statistics:
- 914 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
+ 919 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
