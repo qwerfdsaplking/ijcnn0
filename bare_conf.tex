@@ -172,9 +172,9 @@ This paper is organized as follows: Section \ref{sectiove_related_work} reviews 
 \label{sectiove_related_work}
 Several variants of SVRG focusing on epoch size has been proposed, including SVRG++ \citep{Allen2015Improved}, S2GD \citep{Richtarik:2013te}, SVRG\_Auto\_Epoch \citep{Allen2015Improved} and so on. 
 
-SVRG++ adopts a simple strategy that epoch size $m$ doubles between every consecutive two epochs. This method is absolutely heuristic and sometimes not justified. Our experiments show that when $\eta$ is big or moderate, the exponential growth of $m$ will incur great variance and impairs convergence. 
+SVRG++ adopts a simple strategy that epoch size $m$ doubles between every consecutive two epochs. This method is absolutely heuristic and sometimes not justified. Our experiments show that when $\eta$ is large or moderate, the exponential growth of $m$ will incur great variance and impairs convergence. 
 
-S2GD designs a probability model of $m$ and shows that a large epoch size is used with a high probability. However it needs to know the lower bound on the strong convexity constant of $F$, which is hard to estimate in practice. Meanwhile, the maximum of stochastic steps per epoch is also a sensitive parameter.
+S2GD designs a probability model of $m$ and shows that a large epoch size is used with a high probability. However Meanwhile, the maximum of stochastic steps per epoch is also a sensitive parameter. it needs to know the lower bound on the strong convexity constant of $F$, which is hard to estimate in practice. 
 
 SVRG\_Auto\_Epoch is introduced as an additional improvement of SVRG++. It determines the termination of epoch through the quality of the snapshot full gradient. It records $diff_t = \Vert\nabla f_{i}(\omega_t^s)\mathrm{-}\nabla f_{i}(\tilde{\omega}^{s-1})\Vert$ every iteration $t$ and uses it as a tight upper bound on the variance of the gradient estimator. Although this method is reasonable, it has too much parameters to tune. Moreover, it takes much additional computation for every iterations, which impairs performances significantly. 
 
