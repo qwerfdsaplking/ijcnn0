@@ -145,7 +145,7 @@ where $n$ is the size of the training data. $F(\omega)$ means the loss function 
 
 Gradient Descent (GD) is a basic method to solve such the optimization problem. The gradient of $F(\omega)$  is obtained by passing over the entire training data, which is extremely time-consuming when the size of training data, i.e. $n$ becomes large.  Besides, GD is an iterative-convergent algorithm, that is, the parameter, i.e. $\omega$, usually needs thousands of iterations to be converged.   Since GD needs to compute the  gradient of  $F(\omega)$ every iteration, when the volume of data is large, the computation cost increases sharply and impairs the convergent performance significantly. 
 
-Stochastic Gradient Descent (SGD) mitigates this shortcoming by replacing the calculation of $\nabla F(\omega)$ with a stochastic gradient $\nabla f_i(\omega)$ with $i\in\{1,2, ..., n\}$. In SGD, $i$ is selected randomly  from the entire training data. Thus, SGD outperforms GD on the time efficiency significantly. Take the expectation of $i$, we obtain $\mathbb{E}[\nabla f_i(\omega)] = \nabla F(\omega)$. The difference between $\nabla f_i(\omega)$ and  $\nabla F(\omega)$ represents \emph{variance} which makes it difficult to achieve the optimum.  In order to make the loss function, i.e. $F(\omega)$ converge, a decaying learning rate is usually used to reduce the variance. However, value of the learning rate is decayed to be very small after hundreds of iterations, which impedes the loss function to converge. In a nutshell, SGD with a decaying learning rate incurs a sub-linear convergence rate due to a learning rate.
+Stochastic Gradient Descent (SGD) mitigates this shortcoming by replacing the calculation of $\nabla F(\omega)$ with a stochastic gradient $\nabla f_i(\omega)$ with $i\in\{1,2, ..., n\}$. In SGD, $i$ is selected randomly  from the entire training data. Thus, SGD outperforms GD on the time efficiency significantly. Take the expectation of $i$, we obtain $\mathbb{E}[\nabla f_i(\omega)] = \nabla F(\omega)$. The difference between $\nabla f_i(\omega)$ and  $\nabla F(\omega)$ represents \emph{variance} which makes it difficult to achieve the optimum.  In order to make the loss function, i.e. $F(\omega)$ converge, a decaying learning rate is usually used to reduce the variance. However, value of the learning rate is decayed to be very small after hundreds of iterations, which impedes the loss function to converge. In a nutshell, SGD with a decaying learning rate incurs a sub-linear convergence rate.
 
 %In recent years, variance reduced variants of SGD such as SAG \citep{Schmidt:2013ui, SAGA \citep{Defazio:2014vu}, SDCA \citep{ShalevShwartz:2016vy} are proposed to reduce the variance and gain the linear convergence performance.         
 
@@ -189,9 +189,9 @@ Comparing with the above methods, \textsc{smSVRG} is apparently reasonable in in
  	\caption{\textsc{SVRG}}
 	\label{SVRG}
 	\begin{algorithmic}[1]
-	\Require learning rate $\eta$,  epoch size $m_0$, initial point $\tilde{\omega}$
+	\Require learning rate $\eta$,  epoch size $m$, initial point $\tilde{\omega}$
 	\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega})$
-	\For {$s=0, 1, ...$}
+	\For {$s=0, 1, ... ,m$}
 		\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega}_{s})$
 		\State $\omega_0 = \tilde{\omega}_s$
 		%compute the full gradient 
@@ -206,8 +206,9 @@ Comparing with the above methods, \textsc{smSVRG} is apparently reasonable in in
 \end{algorithm}
 
 
-
-
+\section{Review}
+ In this section we review the SVRG algorithm proposed by Johnson and Zhang\citep{Johnson:9MAvkbgy}.  As is shown in Algorithm \ref{SVRG}, there are two loops in SVRG. Each outer loop is called an $epoch$ while each inner loop is called an $iteration$. In each outer loop, a full gradient $g_k$ is computed at first, which is used to reduce the variance of SGD iterations in the inner loop. At the end of each epoch, $x_k$ is updated by the output of inner loop. Note that there are two options for the update. Although only the convergence of SVRG with Option \uppercase\expandafter{\romannumeral1} is analyzed in \citep{Johnson:9MAvkbgy}, SVRG with Option \uppercase\expandafter{\romannumeral2} has been confirmed numerical to perform better. We adopt Option \uppercase\expandafter{\romannumeral2} in this paper. It is obvious that when $m$ is too large, the SGD with variance reducer will degenerate to native SGD, which results in huge variance. Thus our work focus on how to set a appropriate epoch size.
+ 
  \section{Speed Maintained SVRG}
  \label{mywork}
  In this section we describe two novel algorithms: \textsc{smSVRG} and \textsc{smSVRG+}, which can set the appropriate iteration number in each epoch automatically and has superior convergence properties in out experiments.
@@ -246,7 +247,7 @@ Note that we do not have the exact expression of $C$ and $D_s$, instead, we only
  On the basis of the analysis of section \ref{secOCCI}, we improve our algorithm \textsc{smSVRG} through dynamically adjusting the checking interval, instead of a constant value. According to the two conclusions, we initialize the $m_0$ to be $0.1n$ and set it to be $(int(es/n)+1) * (0.1n)$ in each epoch, where $es$ denote the iteration number of previous epoch. With this strategy , when each epoch seems to be capable of enduring more iterations, \textsc{smSVRG+} will expand the checking interval to improve the confidence, avoiding stopping the epoch ahead of time due to variance.
  
  
- \begin{algorithm}
+ \begin{algorithm}[t]
  	\caption{\textsc{smSVRG}}
 	\label{smSVRG}
 	\begin{algorithmic}[1]
