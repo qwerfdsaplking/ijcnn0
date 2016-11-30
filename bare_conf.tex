@@ -302,7 +302,7 @@ Note that we do not have the exact expression of $C$ and $D_s$, instead, we only
  As illustrated in Algorithm \ref{smSVRG+}, we recompute $m_0$ after the inner loop in each epoch. $m_0$ is set to be $(int(es/n)+1) * (0.1n)$, where $es$ denotes the iteration number of current epoch size. It means that $m_0$ is incremented by $0.1n$ when $es$ exceeds $n,2n,3n$ and so on.
  \subsubsection{Advantages}
  \begin{itemize}
- \item \textsc{smSVRG+} outperforms \textsc{smSVRG} as it will enlarge the window size to reduce variance when necessary, avoiding early stopping of epochs. It shows good performance regardless the learning rate and datasets in  our experiments. 
+ \item \textsc{smSVRG+} outperforms \textsc{smSVRG} as it will enlarge the window size to reduce variance when necessary, avoiding early stopping of epochs. It shows good performance regardless the learning rate and datasets in  our experiments.  
  \item \textsc{smSVRG+} is not sensitive to the initialized $m_0$, as it adapts $m_0$ to an appropriate size rapidly. On the contrary, the performance of \textsc{smSVRG} fairly depends on the choice of $m_0$.
  \end{itemize}
  
