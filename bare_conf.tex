@@ -115,7 +115,7 @@ Fax: (888) 555--1212}}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-    Stochastic gradient desent (SGD) is widely used for large-scale machine learning optimization, but has slow convergence rate due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full-gradient of the entire dataset occasionally. However, conventional SVRG and its variants usually need a hyper-parameter to identify when to compute such the full gradient, which is essential to the covergene performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in parctical machine learning tasks.  In our paper, we propose a new stochastic gradient descent with variance reduction technique named \textsc{smSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{smSVRG+}, which is comparable to and even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions.
+    Stochastic gradient descent (SGD) is widely used for large-scale machine learning optimization, but has slow convergence rate due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full-gradient of the entire dataset occasionally. However, conventional SVRG and its variants usually need a hyper-parameter to identify when to compute such the full gradient, which is essential to the convergence performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in practical machine learning tasks.  In our paper, we propose a new stochastic gradient descent with variance reduction technique named \textsc{smSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{smSVRG+}, which is comparable to and even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions.
 
 
 \end{abstract}
@@ -136,9 +136,9 @@ Fax: (888) 555--1212}}
 
 \section{Introduction}
 % no \IEEEPARstart
-Many machine learning tasks such as logistic regression and linear regression can be formulated to be an optimizaton problem which is described as 
+Many machine learning tasks such as logistic regression and linear regression can be formulated to be an optimization problem which is described as 
 \begin{equation}
-\label{equa_loss_minimization}
+\label{equation_loss_minimization}
 \min F(\omega),~~~~~F(\omega)=\frac{1}{n}\sum\limits_{i=1}^n f_i(\omega)+R(\omega).
 \end{equation}
 where $n$ is the size of the training data. $F(\omega)$ means the loss function or training loss of a machine model, and $\omega$ is its parameter. $R(\omega)$ is the regularizer, which is widely used to avoid overfitting. It is noting that the total number of instances, i.e. $n$ becomes very large with the proliferation of data. 
@@ -158,7 +158,11 @@ mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to red
 Most previous researches present that the epoch size, i.e. $m$ should be constant \citep{Johnson:9MAvkbgy, Tan2016Barzilai, Shah2016Trading} or increased monotonically \citep{Liu:2015bx},  regardless of the learning rate. It is recommended that $m = 2n$ for convex problems and $m = 5n$ for non-convex problems in SVRG, without theoretical analysis and further experimental verification. 
 
 The epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG. More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance in [YaWei], both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. Extensive empirical studies illustrates that the choice of good value for those hyper-parameters costs much time in real machine learning tasks.  
-In this paper, we propose a novel algorithm denoted by \textsc{smSVRG} which can adjust the epoch size adaptively.  Our experiments show that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, the algorithm can endure far more than $n$ iterations with a small $\eta$. Ideally, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is computing the training loss occasionally. However, the training loss computation requires passing over the entire dataset, which is rather time consuming. Intuitively, for strongly convex and smooth problems, the changing amount of parameters, i.e. $\Delta\omega$ is proportional to that of training loss, i.e. $\Delta F$. Hence we can use $\Delta\omega$ instead of $\Delta F$ to detect the fluctuation.  In spirits of this, \textsc{smSVRG} computes the changing amounts of parameters at the same interval, if the changing amount of current interval is greater than that of former, it finishes the current epoch and begins the next one. Besides, we give guidance of how to set the interval size. Since \textsc{smSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{smSVRG+}. In a nutshell, our contributions are highlighted as follows:
+In this paper, we develop a novel algorithm denoted by \textsc{smSVRG} which can adjust the epoch size adaptively.  
+%Our experiments show that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, the algorithm can endure far more than $n$ iterations with a small $\eta$. Ideally, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is computing the training loss occasionally. However, the training loss computation requires passing over the entire dataset, which is rather time consuming. 
+%Intuitively, for strongly convex and smooth problems, the changing amount of parameters, i.e. $\Delta\omega$ is proportional to that of training loss, i.e. $\Delta F$. Hence we can use $\Delta\omega$ instead of $\Delta F$ to detect the fluctuation. 
+\textsc{smSVRG} applies a new stop condition regarding the change of parameters and checks the condition at the same interval, if the condition is satisfied, we stop the current epoch and step into the next one.
+Besides, we give guidance of how to set the parameters. Since \textsc{smSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{smSVRG+}. In a nutshell, our contributions are highlighted as follows:
 \begin {itemize}
 \item \textsc{smSVRG}, this novel algorithm can adjust the epoch size to a suitable value dynamically.
 \item \textsc{smSVRG+}, it is an improvement of \textsc{smSVRG} which is not sensitive to parameters and more practical than \textsc{smSVRG}.
@@ -228,6 +232,8 @@ At the end of each epoch, $\tilde\omega_{s+1}$ is updated by the output of inner
  
  \subsection{smSVRG}
  \subsubsection{Idea}
+ It has been proved in [YaWei] that the optimal $m$ is strongly related to $\eta$. Our experiments also show that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, the algorithm can endure far more than $n$ iterations with a small $\eta$. Ideally, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is computing the training loss occasionally. However, the training loss computation requires passing over the entire dataset, which is rather time consuming. 
+
  When we apply gradient descent to convex problem, as the $\omega_t$ gradually approach the optimal value $\omega^*$, thus the gradient $\nabla F(\omega_t)$ keeps decreasing. We know that
  $$\omega_t - \omega_{t-1} = -\eta\nabla F(\omega_{t-1})$$
  Then we have $\Vert\omega_{t+1}-\omega_t\Vert<\Vert\omega_{t}-\omega_{t-1}\Vert$. 
@@ -323,8 +329,8 @@ Note that we do not have the exact expression of $C$ and $D_s$, instead, we only
  	\caption{\textsc{smSVRG+}}
 	\label{smSVRG+}
 	\begin{algorithmic}[1]
-	\Require learning rate $\eta$, checking interval $m_0$, initial point $\tilde{\omega}$
-	\Initial $m_0=0.1n$
+	\Require learning rate $\eta$, window size $m_0$, initial point $\tilde{\omega}$
+	%\Initial $m_0=0.1n$
 	\For {$s=0, 1, ...$}
 		\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega}_{s})$
 		\State $\omega_0 = \tilde{\omega}_s$
