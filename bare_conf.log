@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.10.27)  30 NOV 2016 18:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.10.27)  30 NOV 2016 19:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,13 +529,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/sc' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 118.
-LaTeX Font Info:    Try loading font information for U+msa on input line 140.
+(Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 122.
+LaTeX Font Info:    Try loading font information for U+msa on input line 144.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 140.
+LaTeX Font Info:    Try loading font information for U+msb on input line 144.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -543,12 +543,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
 []\OT1/ptm/m/n/10 Comparing with SVRG[]Auto[]Epoch and S2GD,
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 266--267
+Underfull \hbox (badness 3690) in paragraph at lines 270--271
 \OT1/ptm/m/sc/10 smSVRG \OT1/ptm/m/n/10 re-quires far less ad-di-tional com-pu-
 ta-tion
  []
@@ -556,155 +556,155 @@ ta-tion
 [3] <cm_w8a01.pdf, id=26, 578.16pt x 433.62pt>
 File: cm_w8a01.pdf Graphic file (type pdf)
  <use cm_w8a01.pdf>
-Package pdftex.def Info: cm_w8a01.pdf used on input line 364.
+Package pdftex.def Info: cm_w8a01.pdf used on input line 368.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cm_mushrooms01.pdf, id=27, 578.16pt x 433.62pt>
 File: cm_mushrooms01.pdf Graphic file (type pdf)
  <use cm_mushrooms01.pdf>
-Package pdftex.def Info: cm_mushrooms01.pdf used on input line 365.
+Package pdftex.def Info: cm_mushrooms01.pdf used on input line 369.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cm_abalone_scale01.pdf, id=28, 578.16pt x 433.62pt>
 File: cm_abalone_scale01.pdf Graphic file (type pdf)
 
 <use cm_abalone_scale01.pdf>
-Package pdftex.def Info: cm_abalone_scale01.pdf used on input line 366.
+Package pdftex.def Info: cm_abalone_scale01.pdf used on input line 370.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  <cm_mg_scale01.pdf, id=29, 578.16pt x 433.62pt>
 File: cm_mg_scale01.pdf Graphic file (type pdf)
 
 <use cm_mg_scale01.pdf>
-Package pdftex.def Info: cm_mg_scale01.pdf used on input line 367.
+Package pdftex.def Info: cm_mg_scale01.pdf used on input line 371.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
- [4]
+
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 395.
+               Default added (so using `tbp') on input line 399.
 
-<ijcnn105.pdf, id=34, 578.16pt x 433.62pt>
+[4] <ijcnn105.pdf, id=34, 578.16pt x 433.62pt>
 File: ijcnn105.pdf Graphic file (type pdf)
  <use ijcnn105.pdf>
-Package pdftex.def Info: ijcnn105.pdf used on input line 417.
+Package pdftex.def Info: ijcnn105.pdf used on input line 421.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <ijcnn1005.pdf, id=35, 578.16pt x 433.62pt>
 File: ijcnn1005.pdf Graphic file (type pdf)
  <use ijcnn1005.pdf>
-Package pdftex.def Info: ijcnn1005.pdf used on input line 418.
+Package pdftex.def Info: ijcnn1005.pdf used on input line 422.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <ijcnn1001.pdf, id=36, 578.16pt x 433.62pt>
 File: ijcnn1001.pdf Graphic file (type pdf)
  <use ijcnn1001.pdf>
-Package pdftex.def Info: ijcnn1001.pdf used on input line 419.
+Package pdftex.def Info: ijcnn1001.pdf used on input line 423.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <ijcnn10001.pdf, id=37, 578.16pt x 433.62pt>
 File: ijcnn10001.pdf Graphic file (type pdf)
  <use ijcnn10001.pdf>
-Package pdftex.def Info: ijcnn10001.pdf used on input line 420.
+Package pdftex.def Info: ijcnn10001.pdf used on input line 424.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a03.pdf, id=38, 578.16pt x 433.62pt>
 File: a9a03.pdf Graphic file (type pdf)
  <use a9a03.pdf>
-Package pdftex.def Info: a9a03.pdf used on input line 428.
+Package pdftex.def Info: a9a03.pdf used on input line 432.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a005.pdf, id=39, 578.16pt x 433.62pt>
 File: a9a005.pdf Graphic file (type pdf)
  <use a9a005.pdf>
-Package pdftex.def Info: a9a005.pdf used on input line 429.
+Package pdftex.def Info: a9a005.pdf used on input line 433.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a002.pdf, id=40, 578.16pt x 433.62pt>
 File: a9a002.pdf Graphic file (type pdf)
  <use a9a002.pdf>
-Package pdftex.def Info: a9a002.pdf used on input line 430.
+Package pdftex.def Info: a9a002.pdf used on input line 434.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a0001.pdf, id=41, 578.16pt x 433.62pt>
 File: a9a0001.pdf Graphic file (type pdf)
  <use a9a0001.pdf>
-Package pdftex.def Info: a9a0001.pdf used on input line 431.
+Package pdftex.def Info: a9a0001.pdf used on input line 435.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale001.pdf, id=42, 578.16pt x 433.62pt>
 File: Year_scale001.pdf Graphic file (type pdf)
  <use Year_scale001.pdf>
-Package pdftex.def Info: Year_scale001.pdf used on input line 438.
+Package pdftex.def Info: Year_scale001.pdf used on input line 442.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale0005.pdf, id=43, 578.16pt x 433.62pt>
 File: Year_scale0005.pdf Graphic file (type pdf)
  <use Year_scale0005.pdf>
-Package pdftex.def Info: Year_scale0005.pdf used on input line 439.
+Package pdftex.def Info: Year_scale0005.pdf used on input line 443.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale0002.pdf, id=44, 578.16pt x 433.62pt>
 File: Year_scale0002.pdf Graphic file (type pdf)
  <use Year_scale0002.pdf>
-Package pdftex.def Info: Year_scale0002.pdf used on input line 440.
+Package pdftex.def Info: Year_scale0002.pdf used on input line 444.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale00001.pdf, id=45, 578.16pt x 433.62pt>
 File: Year_scale00001.pdf Graphic file (type pdf)
  <use Year_scale00001.pdf>
-Package pdftex.def Info: Year_scale00001.pdf used on input line 441.
+Package pdftex.def Info: Year_scale00001.pdf used on input line 445.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cadata01.pdf, id=46, 578.16pt x 433.62pt>
 File: cadata01.pdf Graphic file (type pdf)
  <use cadata01.pdf>
-Package pdftex.def Info: cadata01.pdf used on input line 447.
+Package pdftex.def Info: cadata01.pdf used on input line 451.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cadata005.pdf, id=47, 578.16pt x 433.62pt>
 File: cadata005.pdf Graphic file (type pdf)
  <use cadata005.pdf>
-Package pdftex.def Info: cadata005.pdf used on input line 448.
+Package pdftex.def Info: cadata005.pdf used on input line 452.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cadata002.pdf, id=48, 578.16pt x 433.62pt>
 File: cadata002.pdf Graphic file (type pdf)
  <use cadata002.pdf>
-Package pdftex.def Info: cadata002.pdf used on input line 449.
+Package pdftex.def Info: cadata002.pdf used on input line 453.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cadata0001.pdf, id=49, 578.16pt x 433.62pt>
 File: cadata0001.pdf Graphic file (type pdf)
  <use cadata0001.pdf>
-Package pdftex.def Info: cadata0001.pdf used on input line 450.
+Package pdftex.def Info: cadata0001.pdf used on input line 454.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <m0a9a02.pdf, id=50, 578.16pt x 433.62pt>
 File: m0a9a02.pdf Graphic file (type pdf)
  <use m0a9a02.pdf>
-Package pdftex.def Info: m0a9a02.pdf used on input line 459.
+Package pdftex.def Info: m0a9a02.pdf used on input line 463.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <m0a9a02+.pdf, id=51, 578.16pt x 433.62pt>
 File: m0a9a02+.pdf Graphic file (type pdf)
  <use m0a9a02+.pdf>
-Package pdftex.def Info: m0a9a02+.pdf used on input line 460.
+Package pdftex.def Info: m0a9a02+.pdf used on input line 464.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <m0abalone_scale01.pdf, id=52, 578.16pt x 433.62pt>
 File: m0abalone_scale01.pdf Graphic file (type pdf)
 
 <use m0abalone_scale01.pdf>
-Package pdftex.def Info: m0abalone_scale01.pdf used on input line 461.
+Package pdftex.def Info: m0abalone_scale01.pdf used on input line 465.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <m0abalone_scale01+.pdf, id=53, 578.16pt x 433.62pt>
 File: m0abalone_scale01+.pdf Graphic file (type pdf)
 
 <use m0abalone_scale01+.pdf>
-Package pdftex.def Info: m0abalone_scale01+.pdf used on input line 462.
+Package pdftex.def Info: m0abalone_scale01+.pdf used on input line 466.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 []\OT1/ptm/m/n/10 Since \OT1/ptm/m/sc/10 smSVRG+ \OT1/ptm/m/n/10 per-forms bet-
 ter than \OT1/ptm/m/sc/10 smSVRG\OT1/ptm/m/n/10 ,
  []
@@ -723,6 +723,9 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cm_mg_scale01.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 >] (./bare_conf.bbl
 Underfull \vbox (badness 1824) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6 <./ijcnn105.pdf> <./ijcnn1005.pdf
 
@@ -768,10 +771,7 @@ nclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Year_scale00001.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
->]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-)
+>])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -783,7 +783,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7 <./cadata01.pdf> <./cadata005.pdf
+[7
+
+ <./cadata01.pdf> <./cadata005.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cadata005.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
@@ -815,7 +817,7 @@ DF inclusion: multiple pdfs with page group included in a single page
 Here is how much of TeX's memory you used:
  5555 strings out of 493014
  81575 string characters out of 6133350
- 163696 words of memory out of 5000000
+ 164696 words of memory out of 5000000
  8918 multiletter control sequences out of 15000+600000
  50468 words of font info for 108 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -840,7 +842,7 @@ e/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/f
 onts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (7 pages, 498814 bytes).
+Output written on bare_conf.pdf (7 pages, 498196 bytes).
 PDF statistics:
  1075 PDF objects out of 1200 (max. 8388607)
  199 compressed objects within 2 object streams
