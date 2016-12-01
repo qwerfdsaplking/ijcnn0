@@ -12,13 +12,6 @@ Jonathan Barzilai and Jonathan~M. Borwein.
 \newblock Two-point step size gradient methods.
 \newblock {\em IMA Journal of Numerical Analysis}, 8(1):141--148, 1988.
 
-\bibitem{Defazio:2014vu}
-Aaron Defazio, Francis Bach, and Simon Lacoste-Julien.
-\newblock Saga: A fast incremental gradient method with support for
-  non-strongly convex composite objectives.
-\newblock In {\em Advances in Neural Information Processing Systems}, pages
-  1646--1654, Montr{\'e}al, Canda, December 2014.
-
 \bibitem{Johnson:9MAvkbgy}
 R~Johnson and T~Zhang.
 \newblock Accelerating stochastic gradient descent using predictive variance
@@ -50,21 +43,10 @@ Xingguo Li, Tuo Zhao, Raman Arora, Han Liu, and Jarvis Haupt.
 \newblock In {\em International Conference on Machine Learning}, New York, USA,
   June 2016.
 
-\bibitem{Schmidt:2013ui}
-Mark Schmidt, Nicolas~Le Roux, and Francis Bach.
-\newblock Minimizing finite sums with the stochastic average gradient.
-\newblock {\em Mathematical Programming}, pages 1--30, 2016.
-
 \bibitem{Shah2016Trading}
 Vatsal Shah, Megasthenis Asteris, Anastasios Kyrillidis, and Sujay Sanghavi.
 \newblock Trading-off variance and complexity in stochastic gradient descent.
 \newblock {\em arXiv preprint arXiv:1603.06861}, 2016.
-
-\bibitem{ShalevShwartz:2016vy}
-Shai Shalev-Shwartz.
-\newblock {SDCA without duality, regularization, and individual convexity}.
-\newblock In {\em International Conference on Machine Learning}, New York, USA,
-  June 2016.
 
 \bibitem{Tan2016Barzilai}
 Conghui Tan, Shiqian Ma, Yu~Hong Dai, and Yuqiu Qian.
