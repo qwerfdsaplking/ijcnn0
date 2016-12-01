@@ -69,9 +69,9 @@
 Email: XXXXXXXX
 }
 \and
-\IEEEauthorblockN{XXXXX}
+\IEEEauthorblockN{Yawei Zhao}
 \IEEEauthorblockA{National University of \\Defense Technology\\
-Email: XXXXX}
+Email: zhaoyawei@nudt.edu.cn}
 \and
 \IEEEauthorblockN{XXXXX}
 \IEEEauthorblockA{National University of \\Defense Technology\\
@@ -112,7 +112,7 @@ Email: XXXXX}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-    Stochastic gradient descent (SGD) is widely used for large-scale machine learning optimization, but has slow convergence rate due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full-gradient of the entire dataset occasionally. However, conventional SVRG and its variants usually need a hyper-parameter to identify when to compute such the full gradient, which is essential to the convergence performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in practical machine learning tasks.  In our paper, we propose a new stochastic gradient descent with variance reduction technique named \textsc{aeSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{aeSVRG+}, which is comparable to and even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions.
+    Stochastic gradient descent (SGD) is widely used for large-scale machine learning tasks, but converges slowly due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full gradient of the entire dataset occasionally. However, conventional SVRG and its variants usually need a hyper-parameter to identify when to compute such the full gradient, which is essential to the convergence performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in practical machine learning tasks.  In this paper, we propose a new stochastic gradient descent with the variance reduction technique named \textsc{aeSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{aeSVRG+}, which is comparable to and even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions. Extensive empirical studies illustrate the significant advantage of our proposed algorithms.
 
 
 \end{abstract}
@@ -136,30 +136,29 @@ Email: XXXXX}
 Many machine learning tasks such as logistic regression and ridge regression can be formulated to be an optimization problem which is described as 
 \begin{equation}
 \label{equation_loss_minimization}
-\min F(\omega),~~~~~F(\omega)=\frac{1}{n}\sum\limits_{i=1}^n f_i(\omega)+R(\omega).
+\min F(\omega),~~~~~F(\omega)=\frac{1}{n}\sum\limits_{i=1}^n f_i(\omega)+R(\omega)
 \end{equation}
-where $n$ is the size of the training data. $F(\omega)$ means the loss function or training loss of a machine model, and $\omega$ is its parameter. $R(\omega)$ is the regularizer, which is widely used to avoid overfitting. It is noting that the total number of instances, i.e. $n$ becomes very large with the proliferation of data. 
+where $n$ is the size of the training data. $F(\omega)$ means the loss function or training loss of a machine learning model, and $\omega$ is its parameter. $R(\omega)$ is the regularizer, which is widely used to avoid overfitting. It is noting that the total number of instances in the training dataset, i.e. $n$ becomes very large with the proliferation of data. 
 
-Gradient Descent (GD) is a basic method to solve such the optimization problem. The gradient of $F(\omega)$  is obtained by passing over the entire training data, which is extremely time-consuming when the size of training data, i.e. $n$ becomes large.  Besides, GD is an iterative-convergent algorithm, that is, the parameter, i.e. $\omega$, usually needs thousands of iterations to be converged.   Since GD needs to compute the  gradient of  $F(\omega)$ every iteration, when the volume of data is large, the computation cost increases sharply and impairs the convergent performance significantly. 
+Gradient Descent (GD) is a basic method to solve such the optimization problem. The gradient of $F(\omega)$ denoted by $\nabla F(\omega)$  is obtained by passing over the entire training data, which is extremely time-consuming when the size of training data, i.e. $n$ becomes large.  Besides, GD is an iterative-convergent algorithm, that is, the parameter, i.e. $\omega$, usually needs thousands of iterations to be converged.   Since GD needs to compute the  gradient of  $F(\omega)$ every iteration, when the volume of data is large, the computation cost increases sharply and impairs the convergent performance significantly. 
 
-Stochastic Gradient Descent (SGD) mitigates this shortcoming by replacing the calculation of $\nabla F(\omega)$ with a stochastic gradient $\nabla f_i(\omega)$ with $i\in\{1,2, ..., n\}$. In SGD, $i$ is selected randomly  from the entire training data. Thus, SGD outperforms GD on the time efficiency significantly. Take the expectation of $i$, we obtain $\mathbb{E}[\nabla f_i(\omega)] = \nabla F(\omega)$. The difference between $\nabla f_i(\omega)$ and  $\nabla F(\omega)$ represents \emph{variance} which makes it difficult to achieve the optimum.  In order to make the loss function, i.e. $F(\omega)$ converge, a decaying learning rate is usually used to reduce the variance. However, value of the learning rate is decayed to be very small after hundreds of iterations, which impedes the loss function to converge. In a nutshell, SGD with a decaying learning rate incurs a sub-linear convergence rate.
+Stochastic Gradient Descent (SGD) mitigates this shortcoming by replacing the calculation of $\nabla F(\omega)$ with a stochastic gradient denoted by $\nabla f_i(\omega)$ with $i\in\{1,2, ..., n\}$. In SGD, $i$ is selected randomly  from the entire training data. Thus, SGD outperforms GD on the time efficiency significantly. Take the expectation of $i$, we obtain $\mathbb{E}[\nabla f_i(\omega)] = \nabla F(\omega)$. The difference between $\nabla f_i(\omega)$ and  $\nabla F(\omega)$ represents \emph{variance} which makes it difficult to achieve the optimum.  In order to make the loss function, i.e. $F(\omega)$ converge, a decaying learning rate is usually used to reduce the variance. However, value of the learning rate is decayed to be very small after hundreds of iterations, which impedes the loss function to converge. In a nutshell, SGD with a decaying learning rate incurs a sub-linear convergence rate.
 
 %In recent years, variance reduced variants of SGD such as SAG \citep{Schmidt:2013ui}, SAGA \citep{Defazio:2014vu}, SDCA \citep{ShalevShwartz:2016vy} are proposed to reduce the variance and gain the linear convergence performance.         
 
 % for strongly convex problems but requires to store all the component gradients, which bring in an intolerable memory burden. 
-In recent years, variance reduced variants of SGD such as SVRG \citep{Johnson:9MAvkbgy}  is proposed to reduce the variance and gain the linear convergence performance with a constant learning rate. In SVRG, a full gradient is computed occasionally during the inexpensive SGD steps to reduce the variance, dividing the optimization procedure into many epochs. On the basis of SVRG, many variants have been proposed to improve its performance.
-SVRG-BB \citep{Tan2016Barzilai} uses the Barzilai and Borwein (BB) method proposed by Barzilai and Borwein in \citep{Barzilai1988Two} to compute the step size before every epoch, which generally achieves the comparable convergence performance to SVRG with the best-tuned step size.
-\textsc{CheapSVRG} \citep{Shah2016Trading} and \textsc{sampleVR} aim at reducing the expensive cost of full gradient computation through using a surrogate with a subset of the training dataset. 
-mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to reduce the variance, which shows a clear advantage for  parallel computation.  EMGD \citep{Zhang2013Linear}, SVR-GHT \citep{Li:2016vh}, Prox-SVRG \citep{Xiao:2014vw} and SVRG with second-order information \citep{KolteAccelerating} modify the update rule of stochastic steps, and show advantages to SVRG in some cases.  However, there are few studies discussing about how frequently should a full gradient be computed, i.e. how to set the epoch size $m$.
+In recent years, variance reduced variants of SGD such as SVRG \citep{Johnson:9MAvkbgy}  are proposed to reduce the variance. Those methods gain the linear convergence performance with a constant learning rate. In SVRG, a full gradient is computed occasionally during the inexpensive SGD steps, and thus divides the optimization procedure into many epochs. SVRG uses such the full gradient to reduce the variance during the train of parameters. On the basis of SVRG, many variants have been proposed to improve its performance.
+SVRG-BB \citep{Tan2016Barzilai} uses the Barzilai and Borwein (BB) method   to compute the step size before every epoch \citep{Barzilai1988Two}. 
+\textsc{CheapSVRG} \citep{Shah2016Trading}  aims at reducing the expensive computational cost of full gradient  through using a surrogate with a subset of the training dataset. 
+mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to reduce the variance, which shows a clear advantage for  parallel computation.  EMGD \citep{Zhang2013Linear}, SVR-GHT \citep{Li:2016vh}, Prox-SVRG \citep{Xiao:2014vw} and SVRG with second-order information \citep{KolteAccelerating} modify the update rule of stochastic steps, and show advantages to SVRG in some cases.  However,  most previous researches present that the epoch size, i.e. $m$ should be constant \citep{Johnson:9MAvkbgy, Tan2016Barzilai, Shah2016Trading} or increased monotonically \citep{Liu:2015bx},  regardless of the learning rate. It is recommended that $m = 2n$ for convex problems and $m = 5n$ for non-convex problems in SVRG, without theoretical analysis and further experimental verification. Extensive empirical studies illustrate that the choice of good value for those hyper-parameters costs much time in real machine learning tasks.  
 
-Most previous researches present that the epoch size, i.e. $m$ should be constant \citep{Johnson:9MAvkbgy, Tan2016Barzilai, Shah2016Trading} or increased monotonically \citep{Liu:2015bx},  regardless of the learning rate. It is recommended that $m = 2n$ for convex problems and $m = 5n$ for non-convex problems in SVRG, without theoretical analysis and further experimental verification. 
+Generally, the epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG.  More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance \cite{AllenZhu:2016up}, both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. 
 
-The epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG. More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance in [YaWei], both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. Extensive empirical studies illustrate that the choice of good value for those hyper-parameters costs much time in real machine learning tasks.  
-In this paper, we develop a novel algorithm denoted by \textsc{aeSVRG} which can adjust the epoch size adaptively.  
-%Our experiments show that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, the algorithm can endure far more than $n$ iterations with a small $\eta$. Ideally, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is computing the training loss occasionally. However, the training loss computation requires passing over the entire dataset, which is rather time consuming. 
-%Intuitively, for strongly convex and smooth problems, the changing amount of parameters, i.e. $\Delta\omega$ is proportional to that of training loss, i.e. $\Delta F$. Hence we can use $\Delta\omega$ instead of $\Delta F$ to detect the fluctuation. 
-\textsc{aeSVRG} applies a new stopping condition regarding the change of parameters and checks the condition at the same interval, if the condition is satisfied, we stop the current epoch and step into the next one.
-Besides, we give guidance of how to set the parameters. Since \textsc{aeSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{aeSVRG+}. In a nutshell, our contributions are highlighted as follows:
+
+%????idea. ??????
+
+
+In this paper, we develop a novel algorithm denoted by \textsc{aeSVRG} which can adjust the epoch size adaptively.  \textsc{aeSVRG} applies a new stop condition regarding the variance and the change rate of parameters. Besides, such the stop condition terminates the iterations in an epoch by considering the value of learning rate.  Additionally, we give guidance of how to set the parameters in practical machine learning tasks. Since \textsc{aeSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{aeSVRG+}. In a nutshell, our contributions are highlighted as follows:
 \begin {itemize}
 \item \textsc{aeSVRG}, this novel algorithm can adjust the epoch size to a suitable value dynamically.
 \item \textsc{aeSVRG+}, it is an improvement of \textsc{aeSVRG} which is not sensitive to parameters and more practical than \textsc{aeSVRG}.
@@ -176,11 +175,11 @@ Several variants of SVRG  discussing the strategy of adjusting epoch size has be
 
 SVRG++ adopts a simple strategy that epoch size, i.e. $m$ doubles between every consecutive two epochs. This method is absolutely heuristic and sometimes not justified. Our experiments show that when $\eta$ is large or moderate, the exponential growth of $m$ will incur great variance and impairs convergence. 
 
-S2GD designs a probability model of $m$ and shows that a large epoch size is used with a high probability. However it needs to know the lower bound on the strong convexity constant of $F$, which is hard to estimate in practice. Meanwhile, the maximum of stochastic steps per epoch is also a sensitive parameter.
+S2GD designs a probability model of $m$ and shows that a large epoch size is used with a high probability. However, it needs to know the lower bound of the value of strong convexity of $F(w)$ in Equation \ref{equation_loss_minimization}, which is hard to estimate in practice. Meanwhile, the maximum of stochastic steps per epoch is also a sensitive parameter. 
 
 SVRG\_Auto\_Epoch is introduced as an additional improvement of SVRG++. It determines the termination of epoch through the quality of the snapshot full gradient. It records $diff_t = \Vert\nabla f_{i}(\omega_t^s)\mathrm{-}\nabla f_{i}(\tilde{\omega}^{s-1})\Vert$ every iteration $t$ and uses it as a tight upper bound on the variance of the gradient estimator. Although this method is reasonable, it has too much parameters to tune. Moreover, it takes much additional computation for every iterations, which impairs performances significantly. 
 
-Comparing with the above methods, \textsc{aeSVRG} is apparently reasonable in intuition and does not need to tune extra parameters. Besides, it takes little additional computation cost and outperforms the aforementioned three methods.
+Comparing with the above methods, \textsc{aeSVRG}  does not need to tune extra parameters. Besides, it takes little additional computation cost and outperforms those previous methods.
 
 %\subsection{Subsection Heading Here}
 %Subsection text here.
@@ -191,7 +190,7 @@ Comparing with the above methods, \textsc{aeSVRG} is apparently reasonable in in
  	\caption{\textsc{SVRG}}
 	\label{SVRG}
 	\begin{algorithmic}[1]
-	\Require learning rate $\eta$,  epoch size $m$, initial point $\tilde{\omega}_0$
+	\Require the learning rate $\eta$,  the epoch size $m$, and an initial point $\tilde{\omega}_0$.
 	\For {$s=0, 1, 2, ... $}
 		\State $\tilde{\mu} = \frac{1}{n}\sum\limits_{i=1}^{n}\nabla f_{i}(\tilde{\omega}_{s})$
 		\State $\omega_0 = \tilde{\omega}_s$
@@ -221,16 +220,16 @@ Note that the expectation of $\nabla f_{i_t}(\tilde{\omega}_s)$ over $i_t$ is $\
  It can be seen that the variance of the update rule, i.e. Equation \ref{generalized_SGD} is reduced. When both $\tilde{\omega}$ and $\omega_t$ converge to the optimum $\omega^*$, then $\tilde{\mu}\rightarrow0$ and $\nabla f_{i_t}(\omega_{t-1})\rightarrow\nabla f_{i_t}(\tilde{\omega}_s)$, therefore
  $$\nabla f_{i_t}(\omega_{t-1}) - \nabla f_{i_t}(\tilde{\omega}_s)+\tilde{\mu}\rightarrow0$$
  Hence, the learning rate for SVRG is allowed to be set as a relatively large constant against SGD, which results in a high convergence rate.
-At the end of each epoch, $\tilde\omega_{s+1}$ is updated by the output of inner loop. Note that there are two options for the update. Although only the convergence of SVRG with Option \uppercase\expandafter{\romannumeral1} is analyzed in \citep{Johnson:9MAvkbgy}, SVRG with Option \uppercase\expandafter{\romannumeral2} has been confirmed numerically to perform better. We adopt Option \uppercase\expandafter{\romannumeral2} in this paper. It is obvious that when $m$ is too large, SGD with variance reducer will degenerate to the basic SGD, which results in huge variance. Thus our work focus on how to set an appropriate epoch size.
+At the end of each epoch, $\tilde\omega_{s+1}$ is updated by the output of inner loop. Note that there are two options for the update. Although only the convergence of SVRG with Option \uppercase\expandafter{\romannumeral1} is analyzed in \citep{Johnson:9MAvkbgy}, SVRG with Option \uppercase\expandafter{\romannumeral2} has been confirmed numerically to perform better. We adopt Option \uppercase\expandafter{\romannumeral2} in this paper. It is obvious that when $m$ is too large, SGD with variance reducer will degenerate to the basic SGD, which results in huge variance. Thus our work focuses on how to set an appropriate epoch size.
  
  \section{SVRG with Adaptive Epoch Size}
  \label{mywork}
  In this section we describe two novel algorithms: \textsc{aeSVRG} and \textsc{aeSVRG+}, which can set the epoch size adaptively and have significant convergence performance superior to the previous studies.
- We assume the loss function $F$ and the component functions $f_i$ are convex and smooth throughout the paper.
+ We assume the loss function $F(\omega)$ and the component functions $f_i(\omega)$ in Equation \ref{equation_loss_minimization} are convex and smooth throughout the paper.
  
  \subsection{\textsc{aeSVRG}}
  \subsubsection{Idea}
- It has been proved in [YaWei] that the optimal $m$ is strongly related to $\eta$. Our experimental results also report that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. On the other hands, SVRG can endure far more than $n$ iterations with a small $\eta$. In specific, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the new algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is to evaluate the training loss occasionally. However, the training loss computation requires to pass over the entire training dataset, which is rather time consuming. 
+Generally, the optimal $m$ is strongly related to $\eta$. Our experimental results also report that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. On the other hands, SVRG can endure far more than $n$ iterations with a small $\eta$. In specific, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the new algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is to evaluate the training loss occasionally. However, the training loss computation requires to pass over the entire training dataset, which is rather time consuming. 
 
  When we apply gradient descent to convex problem, as the $\omega_t$ gradually approaches to the optimal value $\omega^*$, the gradient $\nabla F(\omega_t)$ thus keeps decreasing. We know that
  $$\omega_t - \omega_{t-1} = -\eta\nabla F(\omega_{t-1})$$
@@ -279,7 +278,7 @@ Consider the update rule of SVRG, and take the expectation of $i_t$, we can obta
 
  
 \subsubsection{Details}
-As illustrated in Algorithm \ref{aeSVRG}, \textsc{aeSVRG} just requires two parameters: learning rate $\eta$ and window size $m_0$. It differs from SVRG only in the inner loop. At line 5, the first condition, i.e. $t\%m_0=0$ means that  we check Inequality \ref{stop_condition} every $m_0$ iterations. The second condition, i.e. $t>=2m_0$ is trivial as we need at least two windows to check the stoping conditions.  If the condition holds, we break the inner loop, and step out of the current epoch, and into the next epoch. Note that the epoch size is definitely a multiple of $m_0$. Hence we should set $m_0$ to be smaller than $0.5n$ for flexibility. At the same time, $m_0$ cannot be too small because the stopping condition may usually hold, which is caused by the random pick of the instances. We recommend to set $m_0$ between $0.1n$ and $0.2n$ according to extensive empirical sutdies.
+As illustrated in Algorithm \ref{aeSVRG}, \textsc{aeSVRG} just requires two parameters: learning rate $\eta$ and window size $m_0$. It differs from SVRG only in the inner loop. At line 5, the first condition, i.e. $t\%m_0=0$ means that  we check Inequality \ref{stop_condition} every $m_0$ iterations. The second condition, i.e. $t>=2m_0$ is trivial as we need at least two windows to check the stoping conditions.  If the condition holds, we break the inner loop, and step out of the current epoch, and into the next epoch. Note that the epoch size is definitely a multiple of $m_0$. Hence we should set $m_0$ to be smaller than $0.5n$ for flexibility. At the same time, $m_0$ cannot be too small because the stop condition may usually hold, which is caused by the random pick of the instances. We recommend to set $m_0$ between $0.1n$ and $0.2n$ according to extensive empirical sutdies.
 
 \subsubsection{Advantages}
 \begin{itemize}
@@ -291,7 +290,7 @@ As illustrated in Algorithm \ref{aeSVRG}, \textsc{aeSVRG} just requires two para
  \label{m0_analysis}
  In \textsc{aeSVRG}, we use $\Vert\omega_{t}-\omega_{t-m_0}\Vert$ to detect when the training loss begins to fluctuate and fails to converge. However, how to choose a suitable value of the window size i.e. $m_0$ becomes an important issue. In this section, we analyze the convergence performance by varying settings of $m_0$, and provide guidance on setting an optimal value.
  
- First, since the variance incurred by SGD iterations cannot be ignored, when we set $m_0$ to be small, the variance of $\Vert\omega_{t}-\omega_{t-m_0}\Vert$ is too large, and  the probability of the stopping condition of \textsc{aeSVRG} which is denoted by $C(m_0)$, is relatively high. As a result, the Inequality \ref{stop_condition} may often holds due to variance, even though the loss function is still decreased during iterations. Therefore, the full gradient will be computed frequently, which thus wastes much time.  It is obvious that $C(m_0)$ is a monotonically increasing function of $m_0$.
+Since the variance incurred by SGD iterations cannot be ignored, when we set $m_0$ to be small, the variance of $\Vert\omega_{t}-\omega_{t-m_0}\Vert$ is too large, and  the probability of the stop condition of \textsc{aeSVRG} which is denoted by $C(m_0)$, is relatively high. As a result, the Inequality \ref{stop_condition} may often holds due to variance, even though the loss function is still decreased during iterations. Therefore, the full gradient will be computed frequently, which thus wastes much time.  It is obvious that $C(m_0)$ is a monotonically increasing function of $m_0$.
  
  If we set $m_0$ to be relatively large, it will be too late to detect the oscillation of training loss. Therefore, it wastes much time, and makes no process to optimize the objective function. We use $D_s(m_0)$ to denote the \emph{Absolute Delay} of detecting fluctuation. Furthermore, the \emph{Absolute Delay} makes different effects on the convergence performance, which  depends on the epoch size. Thus, it is better to consider the \emph{Relative Delay}:
  \begin{equation}
@@ -316,7 +315,7 @@ m_0 &= \max\limits_{m_0} \{C(m_0)-D_r(m_0)\}\\
 From equation (\ref{minform0}) we can obtain the following conclusions:
 \begin{enumerate}
 \item When epoch size $\upsilon$ is small, the $D_s$ tends to be more important than $C$. Hence we should set $m_0$ to be relatively small to maximize the objective function. On the contrary, it is recommended to set $m_0$ to be large. In spirit of this, we can set $m_0$ to be proportional to the iteration number of previous epoch.
-\item According to our experiment on SVRG, when the learning rate $\eta$ is large, the loss function begins to fluctuate after merely $n/10$ iterations, so we should set the initial $m_0$ to the same order of magnitude as $10^{-1} \times n$
+\item According to our experiment on SVRG, when the learning rate $\eta$ is large, the loss function begins to fluctuate after merely $n/10$ iterations, so we should set the initial $m_0$ to the same order of magnitude as $0.1 n$.
  \end{enumerate}
  
  \subsection{\textsc{aeSVRG+}}
@@ -449,7 +448,7 @@ mg             &1385 &6 & ridge&  $10^{-4}$     \\ \hline
 \end{equation}
 
 We scale the value of all features to $[-1,1]$ and set  $\lambda$ to be $10^{-4}$ for all evaluations. 
-In all figures, the $x$-axis denotes the computational cost, which is measured by the number of gradient computation divided by the size of training data, i.e. $n$. The $y$-axis denotes training loss residual, i.e. $F(\tilde{\omega}_s) - F(\omega^{*})$. Note that the optimum $F(\omega^{*})$ is estimated by running the gradient descent for a long time. The x-axis in all figures means that the number of gradient calculations divided by the size of training data, i.e. $\mathrm{grad/n}$. stopping conditionThis is a metric for measuring gradient complexity in previous work, which is a similar to measure the time cost during train of parameters. Our numerical experiments include three parts: comparison of convergence performance with previous methods, comparison of convergence performance with SVRG by varying learning rate and sensitivity test varying $m_0$. The experimental results report the superior performance of our methods. 
+In all figures, the $x$-axis denotes the computational cost, which is measured by the number of gradient computation divided by the size of training data, i.e. $n$. The $y$-axis denotes training loss residual, i.e. $F(\tilde{\omega}_s) - F(\omega^{*})$. Note that the optimum $F(\omega^{*})$ is estimated by running the gradient descent for a long time. The x-axis in all figures means that the number of gradient calculations divided by the size of training data, i.e. $\mathrm{grad/n}$. This is a metric for measuring gradient complexity in previous work, which is a similar to measure the time cost during train of parameters. Our numerical experiments include three parts: comparison of convergence performance with previous methods, comparison of convergence performance with SVRG by varying learning rate and sensitivity test varying $m_0$. The experimental results report the superior performance of our methods. 
 
 
 
@@ -478,7 +477,7 @@ As illustrated in Figure \ref{cm_test}, we can see that SVRG++ always fluctuates
 \subfigure[\textsc{aeSVRG+} on a9a]{\includegraphics[width=0.5\columnwidth]{m0a9a02+}\label{a9a_aeSVRG+}}
 \subfigure[\textsc{aeSVRG} on abalone]{\includegraphics[width=0.5\columnwidth]{m0abalone01}\label{abalone_aeSVRG}}
 \subfigure[\textsc{aeSVRG+} on abalone]{\includegraphics[width=0.5\columnwidth]{m0abalone01+}\label{abalone_aeSVRG+}}
-\caption{Sensitivity test on $m_0$ for \textsc{aeSVRG} and \textsc{aeSVRG+}. The four numbers on the legends means four different choices of $m_0$. The $\eta$ of a9a and abalone are 0.2 and 0.1 respectively.}
+\caption{Sensitivity test on $m_0$ for \textsc{aeSVRG} and \textsc{aeSVRG+}. The four numbers on the legends means four different choices of $m_0$. The $\eta$ of a9a and abalone are 0.2 and 0.1, respectively.}
 
 \end{figure*}
 
@@ -489,20 +488,22 @@ Since \textsc{aeSVRG+} performs better than \textsc{aeSVRG}, only \textsc{aeSVRG
 As illustrated in Figures \ref{figure_logistic_ijcnn1}, \ref{figure_logistic_a9a}, \ref{figure_ridge_Year}, \ref{figure_ridge_cadata},  \textsc{aeSVRG+} can always have the similar performance as SVRG with most best-tuned epoch size. We observe that when $\eta$ is large,  and $m$ is set to be a small value, e.g. $n$, can achieve best performance. The main reason is that when $\eta$ is large, the variance becomes significant simultaneously, so $m$ must be set to be small in order to bound the variance. As $\eta$ decays, the optimal value of $m$ increases, which means that the algorithm can tolerate more variance induced by extra iterations. As illustrated in Figures \ref{ijcnn105}, \ref{a9a03}, \ref{Year_scale001}, \ref{cadata01}, our method is significantly better than SVRG with best-tuned epoch sizes when learning rate is large or medium. However, As illustrated in Figures \ref{ijcnn10001}, \ref{a9a0001}, \ref{Year_scale00001}, \ref{cadata0001}, if $\eta$ is set to be too small, \textsc{aeSVRG+} performs slightly superior to  SVRG with large epoch sizes, but outperforms SVRG with recommended epoch sizes, i.e. $n$ and $2n$. It is noting that setting $\eta$ to be too small is not a practical approach when using SVRG or its variants, because the convergence rate will be extremely low. Therefore, the sub-optimal performance of \textsc{aeSVRG+} with rather small $\eta$ is acceptable.
 
  
-\subsection{Sensitivity test varying  $m_0$}
+\subsection{Sensitivity test by varying  $m_0$}
 In this section, we conduct the sensitivity test on both \textsc{aeSVRG} and \textsc{aeSVRG+} regarding window size $m_0$. As analyzed in \ref{m0_analysis}, we vary the initial $m_0$ ranges from $0.1$ to $0.25$ in order to test the sensitivity of \textsc{aeSVRG} and \textsc{aeSVRG+}. We conduct the experiments by using logistic regression and ridge regression on two datasets: a9a and abalone, respectively. As illustrated in Figures \ref{a9a_aeSVRG} and \ref{abalone_aeSVRG}, the performance of \textsc{aeSVRG} obviously varies with the $m_0$. And we can see in Figures \ref{a9a_aeSVRG+} and \ref{abalone_aeSVRG+} that the performance of \textsc{aeSVRG+} is not sensitive to the choice of $m_0$. 
 The main reason is that \textsc{aeSVRG} uses the prefixed $m_0$ all the time, while \textsc{aeSVRG+} will adjust the $m_0$ adaptively regardless of the initialization.
-If the initial value is too large, the stopping condition holds just after a few windows of iterations, leading to a smaller epoch size than expected.
+If the initial value is too large, the stop condition holds just after a few windows of iterations, leading to a smaller epoch size than expected.
 Thus \textsc{aeSVRG+} will decrease $m_0$ to a suitable value gradually. On the contrary, \textsc{aeSVRG+} will adjust $m_0$ to bigger according to the size of current epoch.  
 Hence \textsc{aeSVRG+} is more practical than \textsc{aeSVRG} in reality.
 %It shows that the performance of \textsc{aeSVRG+} is not sensitive to the choice of $m_0$ while the performance of \textsc{aeSVRG} varies with the $m_0$.
 
 \section{Discussion}
 \label{discussion}
-Although we have not rigorously conducted the convergence analysis of \textsc{aeSVRG} and \textsc{aeSVRG+}, both of them prove to be efficient and have significant improvement on original SVRG,  intuitively and experimentally. Thus the novel stopping condition is a practical strategy for detecting the fluctuation of training loss. We leave it as an open question to prove the rationality theoretically.
+%?????????????????????????????????????????????????????????????????????
+
+Although we have not rigorously conducted the convergence analysis of \textsc{aeSVRG} and \textsc{aeSVRG+}, both of them prove to be efficient and have significant improvement on original SVRG experimentally. Thus the novel stop condition is a practical strategy for detecting the fluctuation of training loss. We leave it as an open question to prove the rationality theoretically.
 
 \section{Conclusion}
-In this paper we propose a novel stopping condition for each epoch in SVRG, leading to a new variant of SVRG: \textsc{aeSVRG}, which can adjust the epoch size adaptively. We analyze how to choose the optimal value of parameters, and thus develops an improved method called \textsc{aeSVRG+}. We conduct numerical experiments on real datasets to demonstrate the performance of \textsc{aeSVRG} and \textsc{aeSVRG+}. The experiments show that both \textsc{aeSVRG} and \textsc{aeSVRG+} are superior to existing methods. Moreover, the \textsc{aeSVRG+} is comparable to and sometimes even better than the original SVRG with best-tuned epoch sizes.
+In this paper we propose a novel stop condition for each epoch in SVRG, leading to a new variant of SVRG: \textsc{aeSVRG}, which can adjust the epoch size adaptively. We analyze how to choose the optimal value of parameters, and thus develops an improved method called \textsc{aeSVRG+}. We conduct numerical experiments on real datasets to demonstrate the advantage of convergence performance of \textsc{aeSVRG} and \textsc{aeSVRG+}. The experiments show that both \textsc{aeSVRG} and \textsc{aeSVRG+} are superior to existing methods. Moreover, the \textsc{aeSVRG+} is comparable to and sometimes even better than SVRG with best-tuned epoch size, but does not need to tune its epoch size.
 \label{conclusion}
 
 
