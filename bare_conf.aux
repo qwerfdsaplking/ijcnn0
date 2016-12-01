@@ -21,34 +21,33 @@
 \newlabel{sectiove_related_work}{{II}{2}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {SVRG}}}{2}}
 \newlabel{SVRG}{{1}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Overview}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Preliminaries}{2}}
 \newlabel{svrg_review}{{III}{2}}
 \newlabel{generalized_SGD}{{2}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Speed Maintained SVRG}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}SVRG with Adaptive Epoch Size}{2}}
 \newlabel{mywork}{{IV}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}smSVRG}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}\textsc  {aeSVRG}}{3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}1}Idea}{3}}
-\newlabel{sgdinequality}{{3}{3}}
-\newlabel{stop_condition}{{4}{3}}
+\newlabel{sgdinequality}{{4}{3}}
+\newlabel{stop_condition}{{5}{3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}2}Details}{3}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {aeSVRG}}}{3}}
+\newlabel{aeSVRG}{{2}{3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}3}Advantages}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Optimal Choice of the parameter}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Optimal Choice of the window size}{3}}
 \newlabel{m0_analysis}{{\unhbox \voidb@x \hbox {IV-B}}{3}}
-\newlabel{minform0}{{5}{3}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {smSVRG}}}{4}}
-\newlabel{smSVRG}{{2}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}\textsc  {smSVRG+}}{4}}
+\newlabel{relative_delay}{{6}{4}}
+\newlabel{minform0}{{7}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}\textsc  {aeSVRG+}}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}1}Idea}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}2}Details}{4}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces \textsc  {aeSVRG+}}}{4}}
+\newlabel{aeSVRG+}{{3}{4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}3}Advantages}{4}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Numerical Experiments}{4}}
 \newlabel{numexperiments}{{V}{4}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces \textsc  {smSVRG+}}}{4}}
-\newlabel{smSVRG+}{{3}{4}}
-\newlabel{logistic_reg}{{6}{4}}
-\newlabel{ridge_reg}{{7}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Comparing with existing related methods}{4}}
-\citation{Johnson:9MAvkbgy}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Experimental settings}{4}}
+\newlabel{logistic_reg}{{9}{4}}
 \newlabel{cm_w8a01}{{1(a)}{5}}
 \newlabel{sub@cm_w8a01}{{(a)}{5}}
 \newlabel{cm_mushrooms}{{1(b)}{5}}
@@ -57,11 +56,11 @@
 \newlabel{sub@cm_abalone01}{{(c)}{5}}
 \newlabel{cm_mg01}{{1(d)}{5}}
 \newlabel{sub@cm_mg01}{{(d)}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Comparison of \textsc  {smSVRG}, \textsc  {smSVRG+}, SVRG++, S2GD on four datasets. }}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {w8a $\eta =0.1$}}}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {mushrooms $\eta =0.1$}}}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {abalone $\eta =0.1$}}}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {mg $\eta =0.1$}}}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Comparison of \textsc  {aeSVRG}, \textsc  {aeSVRG+}, SVRG++, S2GD on four datasets, with $\eta =0.1$. }}{5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {w8a}}}{5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {mushrooms}}}{5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {abalone}}}{5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {mg}}}{5}}
 \newlabel{cm_test}{{1}{5}}
 \newlabel{ijcnn105}{{2(a)}{5}}
 \newlabel{sub@ijcnn105}{{(a)}{5}}
@@ -71,7 +70,7 @@
 \newlabel{sub@ijcnn1001}{{(c)}{5}}
 \newlabel{ijcnn10001}{{2(d)}{5}}
 \newlabel{sub@ijcnn10001}{{(d)}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Generally, \textsc  {smSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression}}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Generally, \textsc  {aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression on dataset ijcnn1}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {ijcnn1 $\eta =0.5$}}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {ijcnn1 $\eta =0.05$}}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {ijcnn1 $\eta =0.01$}}}{5}}
@@ -85,15 +84,16 @@
 \newlabel{sub@a9a002}{{(c)}{5}}
 \newlabel{a9a0001}{{3(d)}{5}}
 \newlabel{sub@a9a0001}{{(d)}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Generally, \textsc  {smSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression}}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Generally, \textsc  {aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression on dataset a9a}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {a9a $\eta =0.3$}}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {a9a $\eta =0.05$}}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {a9a $\eta =0.02$}}}{5}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {a9a $\eta =0.001$}}}{5}}
 \newlabel{figure_logistic_a9a}{{3}{5}}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Detail information of datasets and models}}{5}}
-\newlabel{data information}{{I}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Comparing with SVRG by varying learning rate}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Details of datasets and models}}{5}}
+\newlabel{data_information}{{I}{5}}
+\newlabel{ridge_reg}{{10}{5}}
+\citation{Johnson:9MAvkbgy}
 \newlabel{Year_scale001}{{4(a)}{6}}
 \newlabel{sub@Year_scale001}{{(a)}{6}}
 \newlabel{Year_scale0005}{{4(b)}{6}}
@@ -102,12 +102,12 @@
 \newlabel{sub@Year_scale0002}{{(c)}{6}}
 \newlabel{Year_scale00001}{{4(d)}{6}}
 \newlabel{sub@Year_scale00001}{{(d)}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Generally, \textsc  {smSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized linear regression}}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Generally, \textsc  {aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized ridge regression on dataset YearPredictionMSD}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {YearPredictionMSD $\eta =0.01$}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {YearPredictionMSD $\eta =0.005$}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {YearPredictionMSD $\eta =0.002$}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {YearPredictionMSD $\eta =0.0001$}}}{6}}
-\newlabel{figure_linear_Year}{{4}{6}}
+\newlabel{figure_ridge_Year}{{4}{6}}
 \newlabel{cadata01}{{5(a)}{6}}
 \newlabel{sub@cadata01}{{(a)}{6}}
 \newlabel{cadata005}{{5(b)}{6}}
@@ -116,28 +116,15 @@
 \newlabel{sub@cadata002}{{(c)}{6}}
 \newlabel{cadata0001}{{5(d)}{6}}
 \newlabel{sub@cadata0001}{{(d)}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Generally, \textsc  {smSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized linear regression}}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Generally, \textsc  {aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized ridge regression on dataset cadata}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {cadata $\eta =0.1$}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {cadata $\eta =0.05$}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {cadata $\eta =0.02$}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {cadata $\eta =0.001$}}}{6}}
-\newlabel{figure_linear_cadata}{{5}{6}}
-\newlabel{smSVRG_smSVRG+}{{V}{6}}
-\newlabel{a9a_smSVRG}{{6(a)}{6}}
-\newlabel{sub@a9a_smSVRG}{{(a)}{6}}
-\newlabel{a9a_smSVRG+}{{6(b)}{6}}
-\newlabel{sub@a9a_smSVRG+}{{(b)}{6}}
-\newlabel{abalone_smSVRG}{{6(c)}{6}}
-\newlabel{sub@abalone_smSVRG}{{(c)}{6}}
-\newlabel{abalone_smSVRG+}{{6(d)}{6}}
-\newlabel{sub@abalone_smSVRG+}{{(d)}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Sensitivity test on $m_0$ for \textsc  {smSVRG} and \textsc  {smSVRG+}. The four numbers on the legends means four different choices of $m_0$. }}{6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\textsc {smSVRG} on a9a}}}{6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\textsc {smSVRG+} on a9a}}}{6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\textsc {smSVRG} on abalone}}}{6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {\textsc {smSVRG+} on abalone}}}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Sensitivity test on $m_0$}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{6}}
+\newlabel{figure_ridge_cadata}{{5}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Comparison of convergence performance with previous methods}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Comparison of convergence performance with SVRG by varying learning rate}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Sensitivity test varying $m_0$}{6}}
 \bibstyle{plain}
 \bibdata{reference}
 \bibcite{Allen2015Improved}{{1}{}{{}}{{}}}
@@ -152,7 +139,24 @@
 \bibcite{Shah2016Trading}{{10}{}{{}}{{}}}
 \bibcite{ShalevShwartz:2016vy}{{11}{}{{}}{{}}}
 \bibcite{Tan2016Barzilai}{{12}{}{{}}{{}}}
+\newlabel{aeSVRG_aeSVRG+}{{\unhbox \voidb@x \hbox {V-B}}{7}}
+\newlabel{a9a_aeSVRG}{{6(a)}{7}}
+\newlabel{sub@a9a_aeSVRG}{{(a)}{7}}
+\newlabel{a9a_aeSVRG+}{{6(b)}{7}}
+\newlabel{sub@a9a_aeSVRG+}{{(b)}{7}}
+\newlabel{abalone_aeSVRG}{{6(c)}{7}}
+\newlabel{sub@abalone_aeSVRG}{{(c)}{7}}
+\newlabel{abalone_aeSVRG+}{{6(d)}{7}}
+\newlabel{sub@abalone_aeSVRG+}{{(d)}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Sensitivity test on $m_0$ for \textsc  {aeSVRG} and \textsc  {aeSVRG+}. The four numbers on the legends means four different choices of $m_0$. The $\eta $ of a9a and abalone are 0.2 and 0.1 respectively.}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\textsc {aeSVRG} on a9a}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\textsc {aeSVRG+} on a9a}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\textsc {aeSVRG} on abalone}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {\textsc {aeSVRG+} on abalone}}}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{7}}
+\newlabel{discussion}{{VI}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{7}}
+\newlabel{conclusion}{{VII}{7}}
 \bibcite{Xiao:2014vw}{{13}{}{{}}{{}}}
 \bibcite{Zhang2013Linear}{{14}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\newlabel{conclusion}{{VI}{7}}
