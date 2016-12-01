@@ -1,48 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
+This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: bare_conf.aux
 The style file: plain.bst
 Database file #1: reference.bib
 Warning--empty journal in KolteAccelerating
-You've used 12 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            569 strings with 6067 characters,
-and the built_in function-call counts, 4013 in all, are:
-= -- 390
-> -- 206
-< -- 2
-+ -- 81
-- -- 68
-* -- 274
-:= -- 681
-add.period$ -- 36
-call.type$ -- 12
-change.case$ -- 70
+            603 strings with 6948 characters,
+and the built_in function-call counts, 6262 in all, are:
+= -- 610
+> -- 326
+< -- 4
++ -- 130
+- -- 110
+* -- 446
+:= -- 1039
+add.period$ -- 51
+call.type$ -- 17
+change.case$ -- 106
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 158
-empty$ -- 301
-format.name$ -- 68
-if$ -- 834
+cite$ -- 18
+duplicate$ -- 235
+empty$ -- 455
+format.name$ -- 110
+if$ -- 1314
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 12
-newline$ -- 63
-num.names$ -- 24
-pop$ -- 81
+int.to.str$ -- 17
+missing$ -- 17
+newline$ -- 88
+num.names$ -- 34
+pop$ -- 111
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 89
 quote$ -- 0
-skip$ -- 107
+skip$ -- 173
 stack$ -- 0
-substring$ -- 202
-swap$ -- 29
-text.length$ -- 2
+substring$ -- 376
+swap$ -- 56
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 68
 warning$ -- 1
-while$ -- 35
-width$ -- 14
-write$ -- 130
+while$ -- 52
+width$ -- 19
+write$ -- 185
 (There was 1 warning)
