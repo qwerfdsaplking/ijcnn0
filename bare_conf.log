@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.10)  30 NOV 2016 22:15
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.10.27)  30 NOV 2016 20:43
+>>>>>>> qwerfdsaplking/master
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -534,13 +538,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/sc' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 118.
-LaTeX Font Info:    Try loading font information for U+msa on input line 140.
+(Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 122.
+LaTeX Font Info:    Try loading font information for U+msa on input line 144.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 140.
+LaTeX Font Info:    Try loading font information for U+msb on input line 144.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -548,32 +552,56 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ] [2]
+<<<<<<< HEAD
 Underfull \hbox (badness 5245) in paragraph at lines 289--290
 []\OT1/ptm/m/n/10 Comparing with the vari-ants of SVRG such as
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
+[]\OT1/ptm/m/n/10 Comparing with SVRG[]Auto[]Epoch and S2GD,
+ []
+
+
+Underfull \hbox (badness 3690) in paragraph at lines 270--271
+\OT1/ptm/m/sc/10 smSVRG \OT1/ptm/m/n/10 re-quires far less ad-di-tional com-pu-
+ta-tion
+>>>>>>> qwerfdsaplking/master
  []
 
 [3] <cm_w8a01.pdf, id=26, 578.16pt x 433.62pt>
 File: cm_w8a01.pdf Graphic file (type pdf)
  <use cm_w8a01.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: cm_w8a01.pdf used on input line 373.
+=======
+Package pdftex.def Info: cm_w8a01.pdf used on input line 368.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cm_mushrooms01.pdf, id=27, 578.16pt x 433.62pt>
 File: cm_mushrooms01.pdf Graphic file (type pdf)
  <use cm_mushrooms01.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: cm_mushrooms01.pdf used on input line 374.
+=======
+Package pdftex.def Info: cm_mushrooms01.pdf used on input line 369.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <cm_abalone_scale01.pdf, id=28, 578.16pt x 433.62pt>
 File: cm_abalone_scale01.pdf Graphic file (type pdf)
 
 <use cm_abalone_scale01.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: cm_abalone_scale01.pdf used on input line 375.
+=======
+Package pdftex.def Info: cm_abalone_scale01.pdf used on input line 370.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  <cm_mg_scale01.pdf, id=29, 578.16pt x 433.62pt>
 File: cm_mg_scale01.pdf Graphic file (type pdf)
 
 <use cm_mg_scale01.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: cm_mg_scale01.pdf used on input line 376.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  <ijcnn105.pdf, id=30, 578.16pt x 433.62pt>
@@ -581,22 +609,56 @@ File: ijcnn105.pdf Graphic file (type pdf)
 
 <use ijcnn105.pdf>
 Package pdftex.def Info: ijcnn105.pdf used on input line 408.
+=======
+Package pdftex.def Info: cm_mg_scale01.pdf used on input line 371.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 399.
+
+<ijcnn105.pdf, id=30, 578.16pt x 433.62pt>
+File: ijcnn105.pdf Graphic file (type pdf)
+ <use ijcnn105.pdf>
+Package pdftex.def Info: ijcnn105.pdf used on input line 416.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<ijcnn1005.pdf, id=31, 578.16pt x 433.62pt>
+File: ijcnn1005.pdf Graphic file (type pdf)
+ <use ijcnn1005.pdf>
+Package pdftex.def Info: ijcnn1005.pdf used on input line 417.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  <ijcnn1005.pdf, id=31, 578.16pt x 433.62pt>
 File: ijcnn1005.pdf Graphic file (type pdf)
 
+<<<<<<< HEAD
 <use ijcnn1005.pdf>
 Package pdftex.def Info: ijcnn1005.pdf used on input line 409.
+=======
+<ijcnn1001.pdf, id=32, 578.16pt x 433.62pt>
+File: ijcnn1001.pdf Graphic file (type pdf)
+ <use ijcnn1001.pdf>
+Package pdftex.def Info: ijcnn1001.pdf used on input line 418.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  <ijcnn1001.pdf, id=32, 578.16pt x 433.62pt>
 File: ijcnn1001.pdf Graphic file (type pdf)
 
+<<<<<<< HEAD
 <use ijcnn1001.pdf>
 Package pdftex.def Info: ijcnn1001.pdf used on input line 410.
+=======
+<ijcnn10001.pdf, id=33, 578.16pt x 433.62pt>
+File: ijcnn10001.pdf Graphic file (type pdf)
+ <use ijcnn10001.pdf>
+Package pdftex.def Info: ijcnn10001.pdf used on input line 419.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  <ijcnn10001.pdf, id=33, 578.16pt x 433.62pt>
 File: ijcnn10001.pdf Graphic file (type pdf)
 
+<<<<<<< HEAD
 <use ijcnn10001.pdf>
 Package pdftex.def Info: ijcnn10001.pdf used on input line 411.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
@@ -604,47 +666,78 @@ Package pdftex.def Info: ijcnn10001.pdf used on input line 411.
 File: a9a03.pdf Graphic file (type pdf)
  <use a9a03.pdf>
 Package pdftex.def Info: a9a03.pdf used on input line 419.
+=======
+<a9a03.pdf, id=34, 578.16pt x 433.62pt>
+File: a9a03.pdf Graphic file (type pdf)
+ <use a9a03.pdf>
+Package pdftex.def Info: a9a03.pdf used on input line 427.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a005.pdf, id=35, 578.16pt x 433.62pt>
 File: a9a005.pdf Graphic file (type pdf)
  <use a9a005.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: a9a005.pdf used on input line 420.
+=======
+Package pdftex.def Info: a9a005.pdf used on input line 428.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a002.pdf, id=36, 578.16pt x 433.62pt>
 File: a9a002.pdf Graphic file (type pdf)
  <use a9a002.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: a9a002.pdf used on input line 421.
+=======
+Package pdftex.def Info: a9a002.pdf used on input line 429.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <a9a0001.pdf, id=37, 578.16pt x 433.62pt>
 File: a9a0001.pdf Graphic file (type pdf)
  <use a9a0001.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: a9a0001.pdf used on input line 422.
+=======
+Package pdftex.def Info: a9a0001.pdf used on input line 430.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale001.pdf, id=38, 578.16pt x 433.62pt>
 File: Year_scale001.pdf Graphic file (type pdf)
  <use Year_scale001.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: Year_scale001.pdf used on input line 429.
+=======
+Package pdftex.def Info: Year_scale001.pdf used on input line 437.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale0005.pdf, id=39, 578.16pt x 433.62pt>
 File: Year_scale0005.pdf Graphic file (type pdf)
  <use Year_scale0005.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: Year_scale0005.pdf used on input line 430.
+=======
+Package pdftex.def Info: Year_scale0005.pdf used on input line 438.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale0002.pdf, id=40, 578.16pt x 433.62pt>
 File: Year_scale0002.pdf Graphic file (type pdf)
  <use Year_scale0002.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: Year_scale0002.pdf used on input line 431.
+=======
+Package pdftex.def Info: Year_scale0002.pdf used on input line 439.
+>>>>>>> qwerfdsaplking/master
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
 <Year_scale00001.pdf, id=41, 578.16pt x 433.62pt>
 File: Year_scale00001.pdf Graphic file (type pdf)
  <use Year_scale00001.pdf>
+<<<<<<< HEAD
 Package pdftex.def Info: Year_scale00001.pdf used on input line 432.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
 
@@ -682,6 +775,61 @@ File: cadata0001.pdf Graphic file (type pdf)
 Package pdftex.def Info: cadata0001.pdf used on input line 456.
 (pdftex.def)             Requested size: 126.0pt x 94.49684pt.
  [5 <./cm_w8a01.pdf> <./cm_mushrooms01.pdf
+=======
+Package pdftex.def Info: Year_scale00001.pdf used on input line 440.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata01.pdf, id=42, 578.16pt x 433.62pt>
+File: cadata01.pdf Graphic file (type pdf)
+ <use cadata01.pdf>
+Package pdftex.def Info: cadata01.pdf used on input line 446.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata005.pdf, id=43, 578.16pt x 433.62pt>
+File: cadata005.pdf Graphic file (type pdf)
+ <use cadata005.pdf>
+Package pdftex.def Info: cadata005.pdf used on input line 447.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata002.pdf, id=44, 578.16pt x 433.62pt>
+File: cadata002.pdf Graphic file (type pdf)
+ <use cadata002.pdf>
+Package pdftex.def Info: cadata002.pdf used on input line 448.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<cadata0001.pdf, id=45, 578.16pt x 433.62pt>
+File: cadata0001.pdf Graphic file (type pdf)
+ <use cadata0001.pdf>
+Package pdftex.def Info: cadata0001.pdf used on input line 449.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<m0a9a02.pdf, id=46, 578.16pt x 433.62pt>
+File: m0a9a02.pdf Graphic file (type pdf)
+ <use m0a9a02.pdf>
+Package pdftex.def Info: m0a9a02.pdf used on input line 458.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<m0a9a02+.pdf, id=47, 578.16pt x 433.62pt>
+File: m0a9a02+.pdf Graphic file (type pdf)
+ <use m0a9a02+.pdf>
+Package pdftex.def Info: m0a9a02+.pdf used on input line 459.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<m0abalone_scale01.pdf, id=48, 578.16pt x 433.62pt>
+File: m0abalone_scale01.pdf Graphic file (type pdf)
+
+<use m0abalone_scale01.pdf>
+Package pdftex.def Info: m0abalone_scale01.pdf used on input line 460.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+
+<m0abalone_scale01+.pdf, id=49, 578.16pt x 433.62pt>
+File: m0abalone_scale01+.pdf Graphic file (type pdf)
+
+<use m0abalone_scale01+.pdf>
+Package pdftex.def Info: m0abalone_scale01+.pdf used on input line 461.
+(pdftex.def)             Requested size: 126.0pt x 94.49684pt.
+ [4] [5 <./cm_w8a01.pdf> <./cm_mushrooms01.pdf
+>>>>>>> qwerfdsaplking/master
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cm_mushrooms01.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
@@ -725,6 +873,7 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./a9a002.pdf): PDF inclusion
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./a9a0001.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
+<<<<<<< HEAD
 >] <m0a9a02.pdf, id=544, 578.16pt x 433.62pt>
 File: m0a9a02.pdf Graphic file (type pdf)
  <use m0a9a02.pdf>
@@ -757,6 +906,9 @@ ter than \OT1/ptm/m/sc/10 smSVRG\OT1/ptm/m/n/10 ,
  []
 
 [6 <./Year_scale001.pdf> <./Year_scale0005.pdf
+=======
+>] [6 <./Year_scale001.pdf> <./Year_scale0005.pdf
+>>>>>>> qwerfdsaplking/master
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Year_scale0005.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
@@ -769,6 +921,7 @@ nclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Year_scale00001.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
 > <./cadata01.pdf
+<<<<<<< HEAD
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cadata01.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
@@ -796,6 +949,12 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
+=======
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./cadata01.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./cadata005.pdf
+>>>>>>> qwerfdsaplking/master
 
 Package natbib Warning: There were undefined citations.
 
@@ -811,6 +970,7 @@ F inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./m0abalone_scale01+.pdf): P
 DF inclusion: multiple pdfs with page group included in a single page
+<<<<<<< HEAD
 >] (./bare_conf.aux)
 
 LaTeX Warning: There were multiply-defined labels.
@@ -845,9 +1005,53 @@ urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.p
 fb>
 Output written on bare_conf.pdf (7 pages, 499955 bytes).
+=======
+>] (./bare_conf.bbl)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[7] (./bare_conf.aux) ) 
+Here is how much of TeX's memory you used:
+ 5555 strings out of 493014
+ 81575 string characters out of 6133350
+ 170115 words of memory out of 5000000
+ 8918 multiletter control sequences out of 15000+600000
+ 50468 words of font info for 108 fonts, out of 8000000 for 9000
+ 1144 hyphenation exceptions out of 8191
+ 38i,17n,26p,1464b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base
+/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
+10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/te
+xmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
+1/urw/times/utmri8a.pfb>
+Output written on bare_conf.pdf (7 pages, 497794 bytes).
+>>>>>>> qwerfdsaplking/master
 PDF statistics:
- 1075 PDF objects out of 1200 (max. 8388607)
- 199 compressed objects within 2 object streams
+ 1074 PDF objects out of 1200 (max. 8388607)
+ 198 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

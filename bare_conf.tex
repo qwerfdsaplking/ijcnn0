@@ -64,22 +64,26 @@
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Michael Shell}
-\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-Georgia Institute of Technology\\
-Atlanta, Georgia 30332--0250\\
-Email: http://www.michaelshell.org/contact.html}
+\author{\IEEEauthorblockN{Erxue Min}
+\IEEEauthorblockA{National University of \\Defense Technology\\
+Email: mex338@qq.com
+}
+%Georgia Institute of Technology\\
+%Atlanta, Georgia 30332--0250\\
+%Email: http://www.michaelshell.org/contact.html}
 \and
-\IEEEauthorblockN{Homer Simpson}
-\IEEEauthorblockA{Twentieth Century Fox\\
-Springfield, USA\\
-Email: homer@thesimpsons.com}
+\IEEEauthorblockN{Yawei Zhao}
+\IEEEauthorblockA{National University of \\Defense Technology\\
+Email: zhaoyawei09@163.com}
+%Springfield, USA\\
+%Email: homer@thesimpsons.com}
 \and
-\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-\IEEEauthorblockA{Starfleet Academy\\
-San Francisco, California 96678--2391\\
-Telephone: (800) 555--1212\\
-Fax: (888) 555--1212}}
+\IEEEauthorblockN{Jun Long}
+\IEEEauthorblockA{National University of \\Defense Technology\\
+Email: 14241368@qq.com}}
+%San Francisco, California 96678--2391\\
+%Telephone: (800) 555--1212\\
+%Fax: (888) 555--1212}}
 
 % conference papers do not typically use \thanks and this command
 % is locked out in conference mode. If really needed, such as for
@@ -153,11 +157,11 @@ Stochastic Gradient Descent (SGD) mitigates this shortcoming by replacing the ca
 In recent years, variance reduced variants of SGD such as SVRG \citep{Johnson:9MAvkbgy}  is proposed to reduce the variance and gain the linear convergence performance with a constant learning rate. In SVRG, a full gradient is computed occasionally during the inexpensive SGD steps to reduce the variance, dividing the optimization procedure into many epochs. On the basis of SVRG, many variants have been proposed to improve its performance.
 SVRG-BB \citep{Tan2016Barzilai} uses the Barzilai and Borwein (BB) method proposed by Barzilai and Borwein in \citep{Barzilai1988Two} to compute the step size before every epoch, which generally achieves the comparable convergence performance to SVRG with the best-tuned step size.
 \textsc{CheapSVRG} \citep{Shah2016Trading} and \textsc{sampleVR} aim at reducing the expensive cost of full gradient computation through using a surrogate with a subset of the training dataset. 
-mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to reduce the variance, which shows a clear advantage for  parallel computation.  EMGD \citep{Zhang2013Linear}, SVR-GHT \citep{Li:2016vh}, Prox-SVRG \citep{Xiao:2014vw} and \textbf{SVRG with second-order information \citep{KolteAccelerating}} modify the update rule of stochastic steps, and show advantages to SVRG in some cases.  However, there are few studies discussing about how frequently should a full gradient be computed, i.e. how to set the epoch size $m$.
+mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to reduce the variance, which shows a clear advantage for  parallel computation.  EMGD \citep{Zhang2013Linear}, SVR-GHT \citep{Li:2016vh}, Prox-SVRG \citep{Xiao:2014vw} and SVRG with second-order information \citep{KolteAccelerating} modify the update rule of stochastic steps, and show advantages to SVRG in some cases.  However, there are few studies discussing about how frequently should a full gradient be computed, i.e. how to set the epoch size $m$.
 
 Most previous researches present that the epoch size, i.e. $m$ should be constant \citep{Johnson:9MAvkbgy, Tan2016Barzilai, Shah2016Trading} or increased monotonically \citep{Liu:2015bx},  regardless of the learning rate. It is recommended that $m = 2n$ for convex problems and $m = 5n$ for non-convex problems in SVRG, without theoretical analysis and further experimental verification. 
 
-The epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG. More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance in [YaWei], both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. Extensive empirical studies illustrates that the choice of good value for those hyper-parameters costs much time in real machine learning tasks.  
+The epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG. More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance in [YaWei], both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. Extensive empirical studies illustrate that the choice of good value for those hyper-parameters costs much time in real machine learning tasks.  
 In this paper, we develop a novel algorithm denoted by \textsc{smSVRG} which can adjust the epoch size adaptively.  
 %Our experiments show that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, the algorithm can endure far more than $n$ iterations with a small $\eta$. Ideally, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is computing the training loss occasionally. However, the training loss computation requires passing over the entire dataset, which is rather time consuming. 
 %Intuitively, for strongly convex and smooth problems, the changing amount of parameters, i.e. $\Delta\omega$ is proportional to that of training loss, i.e. $\Delta F$. Hence we can use $\Delta\omega$ instead of $\Delta F$ to detect the fluctuation. 
@@ -232,7 +236,11 @@ At the end of each epoch, $\tilde\omega_{s+1}$ is updated by the output of inner
  
  \subsection{smSVRG}
  \subsubsection{Idea}
+<<<<<<< HEAD
  It has been proved in [YaWei] that the optimal $m$ is strongly related to $\eta$. Our experimental results also report that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, SVRG can endure far more than $n$ iterations with a small $\eta$. In specific, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the new algorithm will certainly be very efficient and outperform SVRG with constant epoch size. A direct approach is to evaluate the training loss occasionally. However, the training loss computation requires to pass over the entire training dataset, which is rather time consuming. 
+=======
+ It has been proved in [YaWei] that the optimal $m$ is strongly related to $\eta$. Our experiments also show that when $\eta$ is large, the training loss begins to fluctuate after merely a small number of iterations. In the other hands, the algorithm can endure far more than $n$ iterations with a small $\eta$. Ideally, if we stop the iterations in one epoch just before the training loss begins to fluctuate, the algorithm will certainly be very efficient and outperforms SVRG with constant epoch size. A direct approach is computing the training loss occasionally. However, the training loss computation requires passing over the entire dataset, which is rather time consuming. 
+>>>>>>> qwerfdsaplking/master
 
  When we apply gradient descent to convex problem, as the $\omega_t$ gradually approaches to the optimal value $\omega^*$, the gradient $\nabla F(\omega_t)$ thus keeps decreasing. We know that
  $$\omega_t - \omega_{t-1} = -\eta\nabla F(\omega_{t-1})$$
@@ -289,7 +297,11 @@ As illustrated in Algorithm \ref{smSVRG}, \textsc{smSVRG} just requires two para
 \item Comparing with the variants of SVRG such as SVRG\_Auto\_Epoch and S2GD, \textsc{smSVRG} requires far less additional computation cost. The reason is that it just needs to compute a simple inequality every $m_0$ iterations, which is very efficient.
 \end{itemize}
  
+<<<<<<< HEAD
  \subsection{Optimal Choice of the window size}
+=======
+ \subsection{Optimal Choice of the parameter}
+>>>>>>> qwerfdsaplking/master
  \label{m0_analysis}
  In \textsc{smSVRG}, we use $\Vert\omega_{t}-\omega_{t-m_0}\Vert$ to detect when the training loss begins to fluctuate and fails to converge. However, how to choose a suitable value of the window size i.e. $m_0$ becomes an important issue. In this section, we analyze the convergence performance by varying settings of $m_0$, and provide guidance on setting an optimal value.
  
@@ -318,11 +330,12 @@ m_0 &= \max\limits_{m_0} \{C(m_0)-D_r(m_0)\}\\
 From equation (\ref{minform0}) we can obtain the following conclusions:
 \begin{enumerate}
 \item When epoch size $es$ is small, the $D_s$ tends to be more important than $C$. Hence we should set $m_0$ to be relatively small to maximize the objective function. On the contrary, it is recommended to set $m_0$ to be large. In spirit of this, we can set $m_0$ to be proportional to the iteration number of previous epoch.
-\item According to our experiment on SVRG, when the learning rate $\eta$ is large, the loss function begin to fluctuate after merely $n/10$ iterations, so we should set the initial $m_0$ to the same order of magnitude as $10^{-1} \times n$
+\item According to our experiment on SVRG, when the learning rate $\eta$ is large, the loss function begins to fluctuate after merely $n/10$ iterations, so we should set the initial $m_0$ to the same order of magnitude as $10^{-1} \times n$
  \end{enumerate}
  
  \subsection{\textsc{smSVRG+}}
  \subsubsection{Idea}
+<<<<<<< HEAD
  Our experiments on \textsc{smSVRG} show that it performs well for large and moderate $\eta$. However, when $\eta$ is rather small, the best epoch size for SVRG will be larger than $10n$. And \textsc{smSVRG} may finish the epoch prematurely while the training loss keeps declining. It is because the inequality (\ref{stop_condition}) may holds due to variance, rather than the fluctuation of training loss. According to the analysis in \ref{m0_analysis}, variance of $\Vert\omega_{t+m_0}-\omega_t\Vert$ has more impact on the performance of our algorithm when the best epoch size is large. Intuitively, we should adjust the window size $m_0$ dynamically according to current epoch size, instead of a constant value.
  \subsubsection{Details}
  As illustrated in Algorithm \ref{smSVRG+}, we initialize the $m_0$ to be $0.1n$ and recompute $m_0$ after the inner loop in each epoch. $m_0$ is set to be $(\lfloor es/n \rfloor+1) \times (0.1n)$, where $es$ denotes the iteration number of current epoch size. It means that $m_0$ increases when $es$ exceeds $n,2n,3n$ and so on.
@@ -330,6 +343,15 @@ From equation (\ref{minform0}) we can obtain the following conclusions:
  \begin{itemize}
  \item \textsc{smSVRG+} outperforms \textsc{smSVRG} as it will enlarge the window size to reduce variance when necessary, avoiding to stop an epoch early. It shows good performance regardless the learning rate and datasets in  our experiments. 
  \item \textsc{smSVRG+} is not sensitive to the initialized $m_0$, as it tunes $m_0$ to an appropriate size adaptively. By contrast, the performance of \textsc{smSVRG} fairly depends on the choice of $m_0$.
+=======
+ Our experiments on \textsc{smSVRG} show that it performs well for large and moderate $\eta$. However, when $\eta$ is rather small, the best epoch size for SVRG could be larger than $10n$. And \textsc{smSVRG} may finish the epoch prematurely while the training loss keeps declining. It is because the inequality (\ref{stop_condition}) may holds due to variance, rather than the fluctuation of training loss. According to the analysis in \ref{m0_analysis}, variance of $\Vert\omega_{t+m_0}-\omega_t\Vert$ has more impact on the performance of our algorithm when the best epoch size is large. Intuitively, we should adjust the window size $m_0$ of next epoch according to current epoch size, instead of a constant value.
+ \subsubsection{Details}
+ As illustrated in Algorithm \ref{smSVRG+}, we recompute $m_0$ after the inner loop in each epoch. $m_0$ is set to be $(int(es/n)+1) * (0.1n)$, where $es$ denotes the iteration number of current epoch size. It means that $m_0$ is incremented by $0.1n$ when $es$ exceeds $n,2n,3n$ and so on.
+ \subsubsection{Advantages}
+ \begin{itemize}
+ \item \textsc{smSVRG+} outperforms \textsc{smSVRG} as it will enlarge the window size to reduce variance when necessary, avoiding early stopping of epochs. It shows good performance regardless the learning rate and datasets in  our experiments.  
+ \item \textsc{smSVRG+} is not sensitive to the initialized $m_0$, as it adapts $m_0$ to an appropriate size rapidly. On the contrary, the performance of \textsc{smSVRG} fairly depends on the choice of $m_0$.
+>>>>>>> qwerfdsaplking/master
  \end{itemize}
  
  
@@ -402,8 +424,14 @@ YearPredictionMSD & 463715  &  90 &    linear  &      $10^{-4}$     \\
 cadata              & 20640  &8   &     linear  &    $10^{-4}$       \\ \hline
 \end{tabular}
 \end{table}
+<<<<<<< HEAD
  
  \begin{figure*}[ht]
+=======
+
+
+\begin{figure*}[ht]
+>>>>>>> qwerfdsaplking/master
 \centering
 \subfigure[ijcnn1 $\eta=0.5$]{\includegraphics[width=0.5\columnwidth]{ijcnn105}\label{ijcnn105}}
 \subfigure[ijcnn1 $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{ijcnn1005}\label{ijcnn1005}}
@@ -478,11 +506,23 @@ As illustrated in Figure \ref{cm_test}, we can see that SVRG++ always fluctuates
 
 \end{figure*}
 
+<<<<<<< HEAD
  \subsection{Comparison of convergence performance with SVRG by varying learning rate}
 Since \textsc{smSVRG+} performs better than \textsc{smSVRG}, \textsc{smSVRG+} is used to conduct the comparison with SVRG. For SVRG, we increase the epoch size, i.e. $m$ as four different values: $n$, $2n$, $4n$, $10n$. Those values are used to conduct performance evaluation in SVRG \citep{Johnson:9MAvkbgy}.  Besides, the performance with the epoch size larger than $10n$ is similar  to the performance with an extremely large epoch size. It is because that the full gradient is rare to be computed due to such extremely epoch size. The dashed lines represents SVRG with a fixed epoch size; while the green solid lines stands for \textsc{smSVRG+}.
 
 As illustrated in Figures \ref{figure_logistic_ijcnn1}, \ref{figure_logistic_a9a}, \ref{figure_linear_Year}, \ref{figure_linear_cadata},  \textsc{smSVRG+} can always have the similar performance as SVRG with most best-tuned epoch size. We observe that when $\eta$ is large,  and $m$ is set to be a small value, e.g. $n$, can achieve best performance. The main reason is that when $\eta$ is large, the variance becomes significant simultaneously, so $m$ must be set to be small in order to bound the variance. As $\eta$ decays, the optimal value of $m$ increases, which means that the algorithm can tolerate more variance induced by extra iterations. As illustrated in Figures \ref{ijcnn105}, \ref{a9a03}, \ref{Year_scale001}, \ref{cadata01}, our method is significantly better than SVRG with best-tuned epoch sizes when learning rate is large or medium. However, As illustrated in Figures \ref{ijcnn10001}, \ref{a9a0001}, \ref{Year_scale00001}, \ref{cadata0001}, if $\eta$ is set to be too small, \textsc{smSVRG+} performs slightly superior to  SVRG with large epoch sizes, but outperforms SVRG with recommended epoch sizes, i.e. $n$ and $2n$. It is noting that setting $\eta$ to be too small is not a practical approach when using SVRG or its variants, because the convergence rate will be extremely low. Therefore, the sub-optimal performance of \textsc{smSVRG+} with very small $\eta$ is acceptable.
 
+=======
+
+\subsection{Comparing with existing related methods}
+In this section, we compare our \textsc{smSVRG} and \textsc{smSVRG+} with two aforementioned existing methods: SVRG++ and S2GD. We do not compare with SVRG\_Auto\_Epoch in that we find its termination condition of epoch is never satisfied and keeps doing SGD iteration, resulting in nonconvegence. For SVRG++, we initialize $m = n$. For S2GD, we set the maximum of $m$ to be $4n$. For both \textsc{smSVRG} and \textsc{smSVRG+}, we set the window size, i.e. $m_0$ to be $0.1n$. We evaluate these methods by running logistic regression on dataset ijcnn1. 
+As illustrated in Figure \ref{cm_test}, we can see that SVRG++ always fluctuates violently and fails to converge due the large variance caused by too large epoch size. It is shown that \textsc{smSVRG} and \textsc{smSVRG+} always outperform SVRG++ and S2GD and converge rapidly. Besides, the performance of \textsc{smSVRG+} is superior to that of \textsc{smSVRG}. The main reason is that \textsc{smSVRG+} can adjust the windows size to a suitable value adaptively.
+
+ \subsection{Comparing with SVRG by varying learning rate}
+Since \textsc{smSVRG+} performs better than \textsc{smSVRG}, only \textsc{smSVRG+} is used to conduct the comparison with SVRG. For SVRG, we increase the epoch size, i.e. $m$ as four different values: $n$, $2n$, $4n$, $10n$. The first three values are chosen because it is recommended to choose $m$ to be the same order of $n$ but slightly larger\citep{Johnson:9MAvkbgy}. Besides, our experiments show that epoch size larger than $10n$ have similar performance as the extremely large epoch size decrease the impact of full gradient computation. In all figures, the dashed lines represents SVRG with fixed epoch size; while the blue solid lines with markers stand for \textsc{smSVRG+}.
+
+As illustrated in Figures \ref{figure_logistic_ijcnn1}, \ref{figure_logistic_a9a}, \ref{figure_linear_Year}, \ref{figure_linear_cadata},  \textsc{smSVRG+} can always have the similar performance as SVRG with most best-tuned epoch size. We observe that when $\eta$ is large,  and $m$ is set to be a small value, e.g. $n$, can achieve best performance. The main reason is that when $\eta$ is large, the variance becomes significant simultaneously, so $m$ must be set to be small in order to bound the variance. As $\eta$ decays, the optimal value of $m$ increases, which means that the algorithm can tolerate more variance induced by extra iterations. As illustrated in Figures \ref{ijcnn105}, \ref{a9a03}, \ref{Year_scale001}, \ref{cadata01}, our method is comparable to and sometimes even better than SVRG with best-tuned epoch sizes when learning rate is large or medium. However, As illustrated in Figures \ref{ijcnn10001}, \ref{a9a0001}, \ref{Year_scale00001}, \ref{cadata0001}, if $\eta$ is set to be too small, \textsc{smSVRG+} performs slightly inferior to  SVRG with large epoch sizes, but outperforms SVRG with recommended epoch sizes, i.e. $n$ and $2n$. It is noting that setting $\eta$ to be too small is not a practical approach when using SVRG or its variants, because the convergence rate will be extremely low. Therefore, the sub-optimal performance of \textsc{smSVRG+} with rather small $\eta$ is acceptable.
+>>>>>>> qwerfdsaplking/master
  
 \subsection{Sensitivity test varying  $m_0$}
 In this section, we conduct the sensitivity test on both \textsc{smSVRG} and \textsc{smSVRG+} regarding window size $m_0$. As analyzed in \ref{m0_analysis}, we vary the initial $m_0$ ranges from $0.1$ to $0.25$ in order to test the sensitivity of \textsc{smSVRG} and \textsc{smSVRG+}. We conduct the experiments by using logistic regression and linear regression on two datasets: a9a and abalone, respectively. As illustrated in Figures \ref{a9a_smSVRG} and \ref{abalone_smSVRG}, the performance of \textsc{smSVRG} varies with the $m_0$ significantly. And we can see in Figures \ref{a9a_smSVRG+} and \ref{abalone_smSVRG+} that the performance of \textsc{smSVRG+} is not sensitive to the choice of $m_0$. The main reason is that \textsc{smSVRG+} will adjust the $m_0$ adaptively regardless of the initialization. 
@@ -490,7 +530,11 @@ Hence \textsc{smSVRG+} is more practical than \textsc{smSVRG} in reality.
 %It shows that the performance of \textsc{smSVRG+} is not sensitive to the choice of $m_0$ while the performance of \textsc{smSVRG} varies with the $m_0$.
 
 \section{Conclusion}
+<<<<<<< HEAD
 In this paper we propose a novel stop condition for each epoch in SVRG, which leads to a new variant of SVRG: \textsc{smSVRG}. It can adjust the epoch size adaptively. We analyze how to choose the optimal value of parameters, and thus develops an improved method called \textsc{smSVRG+}. We conduct numerical experiments on real datasets to demonstrate the performance of \textsc{smSVRG} and \textsc{smSVRG+}. The experiments show that both \textsc{smSVRG} and \textsc{smSVRG+} are superior to existing methods. Moreover, the \textsc{smSVRG+} is comparable to and sometimes even better than the original SVRG with best-tuned epoch sizes.
+=======
+In this paper we propose a novel stop condition for each epoch in SVRG, leading to a new variant of SVRG: \textsc{smSVRG}, which can adjust the epoch size adaptively. We analyze how to choose the optimal value of parameters and developed an improved method called \textsc{smSVRG+}. We conduct numerical experiments on real datasets to demonstrate the performance of \textsc{smSVRG} and \textsc{smSVRG+}. The experiments show that both \textsc{smSVRG} and \textsc{smSVRG+} are superior to existing methods. Moreover, the \textsc{smSVRG+} is comparable to and sometimes even better than the original SVRG with best-tuned epoch sizes.
+>>>>>>> qwerfdsaplking/master
 \label{conclusion}
 
 
