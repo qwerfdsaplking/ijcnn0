@@ -2,6 +2,7 @@
 
 
 %\usepackage{geometry}
+\usepackage{balance}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -64,18 +65,36 @@
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Erxue Min}
-\IEEEauthorblockA{National University of \\Defense Technology\\
+\author{Erxue Min,
+Yawei~Zhao,
+Jun Long,
+Chengkun Wu,
+Kuan Li,
+Jianping Yin
+
+\author{\IEEEauthorblockN{Erxue Min, Yawei Zhao, Chengkun Wu, Kuan Li, and Jianping Yin}
+\IEEEauthorblockA{College of Computer, National University of Defense Technology,\\
+Changsha, China 410073
+%Email: {myw123, wchknudtli.kuan}@163.com, {zhaoyawei,jpyin}@nudt.edu.cn.
 }
-\and
-\IEEEauthorblockN{Yawei Zhao}
-\IEEEauthorblockA{National University of \\Defense Technology\\
 }
-\and
-\IEEEauthorblockN{XXXXX}
-\IEEEauthorblockA{National University of \\Defense Technology\\
+\IEEEcompsocitemizethanks
+{\IEEEcompsocthanksitem E. Min,Y. Zhao, J. Long, C. Wu, K. Li and J. Yin are with College of Computer, National University of Defense Technology, Changsha 410073, P.R. China. E-mail: zhaoyawei@nudt.edu.cn.
 }
 }
+
+%\author{\IEEEauthorblockN{Erxue Min}
+%\IEEEauthorblockA{National University of \\Defense Technology\\
+%}
+%\and
+%\IEEEauthorblockN{Yawei Zhao}
+%\IEEEauthorblockA{National University of \\Defense Technology\\
+%}
+%\and
+%\IEEEauthorblockN{XXXXX}
+%\IEEEauthorblockA{National University of \\Defense Technology\\
+%}
+%}
 
 % conference papers do not typically use \thanks and this command
 % is locked out in conference mode. If really needed, such as for
@@ -100,7 +119,7 @@
 %\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
 
 
-
+\balance
 
 % use for special paper notices
 %\IEEEspecialpapernotice{(Invited Paper)}
@@ -111,7 +130,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-    Stochastic gradient descent (SGD) is widely used for large-scale machine learning tasks, but converges slowly due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full gradient of the entire dataset occasionally. However, conventional SVRG and its variants usually need a hyper-parameter to identify when to compute such the full gradient, which is essential to the convergence performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in practical machine learning tasks.  In this paper, we propose a new stochastic gradient descent with the variance reduction technique named \textsc{aeSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{aeSVRG+}, which is comparable to and even better than SVRG with best-tuned epoch sizes for smooth and strongly convex functions. Extensive empirical studies illustrate the significant advantage of our proposed algorithms.
+    Stochastic gradient descent (SGD) is widely used for large-scale machine learning tasks, but converges slowly due to the highly inherent variance. In recent years, the popular Stochastic Variance Reduced Gradient (SVRG) method mitigates this shortcoming, through computing the full gradient of the entire dataset for every epoch.  However, conventional SVRG and its variants usually need  to identify this hyper-parameter, i.e. the epoch size, which is essential to the convergence performance. Few previous studies discuss the method to identify such the hyper-parameter, which makes it hard to gain a good convergence performance in practical machine learning tasks.  In this paper, we propose a new stochastic gradient descent with the variance reduction technique named \textsc{aeSVRG} which computes the full gradient adaptively.  Moreover, we propose an improved method denoted by \textsc{aeSVRG+}, whose convergence performance is comparable to and even better than that of SVRG with best-tuned epoch sizes. Extensive empirical studies illustrate the significant advantage of our proposed algorithms.
 
 
 \end{abstract}
@@ -153,15 +172,14 @@ mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to red
 
 Generally, the epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG.  More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance \cite{AllenZhu:2016up}, both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. 
 
-Since SVRG applies SGD with variance reducer to optimize the object function, the training loss decreases rapidly at the beginning of each epoch but tends to fluctuate after excessive iterations. If we can detect the fluctuation and break the current epoch as soon as it happens, we are sure to achieve a better performance than the original SVRG. Thus the key point is finding a effective strategy to detect the fluctuation in real time.
-
-In this paper, we develop a novel algorithm denoted by \textsc{aeSVRG} which can adjust the epoch size adaptively.  \textsc{aeSVRG} applies a new stop condition regarding the variance and the change rate of parameters. Besides, such the stop condition terminates the iterations in an epoch by considering the value of learning rate.  Additionally, we give guidance of how to set the parameters in practical machine learning tasks. Since \textsc{aeSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{aeSVRG+}. In a nutshell, our contributions are highlighted as follows:
+Since SVRG applies SGD with variance reducer to optimize the object function, the training loss decreases rapidly at the beginning of each epoch but tends to fluctuate after excessive iterations. If we can detect the fluctuation and break the current epoch as soon as it happens, we are sure to achieve a better performance than the original SVRG. Thus the key idea is to find an effective strategy to detect the fluctuation in real time. In this paper, we develop a novel algorithm denoted by \textsc{aeSVRG} which can adjust the epoch size adaptively.  \textsc{aeSVRG} applies a new stop condition regarding the variance and the change rate of parameters. Besides, such the stop condition terminates the iterations in an epoch by considering the value of learning rate.  Additionally, we give guidance of how to set the parameters in practical machine learning tasks. Since \textsc{aeSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{aeSVRG+}. In a nutshell, our contributions are highlighted as follows:
 \begin {itemize}
-\item \textsc{aeSVRG}, this novel algorithm can adjust the epoch size to a suitable value dynamically.
-\item \textsc{aeSVRG+}, it is an improvement of \textsc{aeSVRG} which is not sensitive to parameters and more practical than \textsc{aeSVRG}.
-\item Extensive empirical studies shows the effectiveness of our proposed algorithms which outperform their countparts on the convergence performance significantly.
+\item  A novel algorithm denoted by \textsc{aeSVRG} is proposed, which can adjust the epoch size to a suitable value dynamically.
+\item An improvement of \textsc{aeSVRG} denoted by \textsc{aeSVRG+}  is   presented, which  is not sensitive to the selection of hyper-parameters, e.g. the learning rate and the epoch size.
+\item Extensive empirical studies shows the effectiveness of our proposed algorithms which outperform their counterparts on the convergence performance significantly.
 \end {itemize}
-This paper is organized as follows: Section \ref{sectiove_related_work} reviews the related work. Section \ref{svrg_review} describes the SVRG algorithm. Section \ref{mywork} presents the new variant of SVRG, i.e. \textsc{aeSVRG} and its improved method, i.e. \textsc{aeSVRG+}. Section \ref{numexperiments} demonstrates the numerical results of our algorithm. Section \ref{discussion} discusses the strengths and weaknesses.
+
+This paper is organized as follows: Section \ref{sectiove_related_work} reviews the related work. Section \ref{svrg_review} describes the SVRG algorithm. Section \ref{mywork} presents the new variant of SVRG, i.e. \textsc{aeSVRG} and its improved method, i.e. \textsc{aeSVRG+}. Section \ref{numexperiments} demonstrates the numerical results of our algorithms. Section \ref{discussion} discusses the strengths and weaknesses.
 Section \ref{conclusion} concludes this paper.
 
 
@@ -402,36 +420,6 @@ mg             &1385 &6 & ridge&  $10^{-4}$     \\ \hline
 \end{tabular}
 \end{table}
  
- \begin{figure*}[ht]
-\centering
-\subfigure[ijcnn1 $\eta=0.5$]{\includegraphics[width=0.5\columnwidth]{ijcnn105}\label{ijcnn105}}
-\subfigure[ijcnn1 $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{ijcnn1005}\label{ijcnn1005}}
-\subfigure[ijcnn1 $\eta=0.01$]{\includegraphics[width=0.5\columnwidth]{ijcnn1001}\label{ijcnn1001}}
-\subfigure[ijcnn1 $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{ijcnn10001}\label{ijcnn10001}}
-
-\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression on dataset ijcnn1}
-\label{figure_logistic_ijcnn1}
-\end{figure*}
-
-\begin{figure*}[ht]
-\centering
-\subfigure[a9a $\eta=0.3$]{\includegraphics[width=0.5\columnwidth]{a9a03}\label{a9a03}}
-\subfigure[a9a $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{a9a005}\label{a9a005}}
-\subfigure[a9a $\eta=0.02$]{\includegraphics[width=0.5\columnwidth]{a9a002}\label{a9a002}}
-\subfigure[a9a $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{a9a0001}\label{a9a0001}}
-
-\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression on dataset a9a}
-\label{figure_logistic_a9a}
-\end{figure*}
-
-\begin{figure*}[ht]
-\subfigure[YearPredictionMSD $\eta=0.01$]{\includegraphics[width=0.5\columnwidth]{Year_scale001}\label{Year_scale001}}
-\subfigure[YearPredictionMSD $\eta=0.005$]{\includegraphics[width=0.5\columnwidth]{Year_scale0005}\label{Year_scale0005}}
-\subfigure[YearPredictionMSD $\eta=0.002$]{\includegraphics[width=0.5\columnwidth]{Year_scale0002}\label{Year_scale0002}}
-\subfigure[YearPredictionMSD $\eta=0.0001$]{\includegraphics[width=0.5\columnwidth]{Year_scale00001}\label{Year_scale00001}}
-\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized ridge regression on dataset YearPredictionMSD}
-\label{figure_ridge_Year}
-\end{figure*}
 
  The $l2$-regularized logistic regression task is conducted on datasets: ijcnn1, a9a, w8a and mushrooms where the label of instances  is set to be 1 or -1. Thus, the loss function of $l2$-regularized logistic regression task is formulated:
 \begin{equation}
@@ -446,6 +434,36 @@ mg             &1385 &6 & ridge&  $10^{-4}$     \\ \hline
 We scale the value of all features to $[-1,1]$ and set  $\lambda$ to be $10^{-4}$ for all evaluations. 
 In all figures, the $x$-axis denotes the computational cost, which is measured by the number of gradient computation divided by the size of training data, i.e. $n$. The $y$-axis denotes training loss residual, i.e. $F(\tilde{\omega}_s) - F(\omega^{*})$. Note that the optimum $F(\omega^{*})$ is estimated by running the gradient descent for a long time. The x-axis in all figures means that the number of gradient calculations divided by the size of training data, i.e. $\mathrm{grad/n}$. This is a metric for measuring gradient complexity in previous work, which is a similar to measure the time cost during train of parameters. Our numerical experiments include three parts: comparison of convergence performance with previous methods, comparison of convergence performance with SVRG by varying learning rate and sensitivity test varying $m_0$. The experimental results report the superior performance of our methods. 
 
+ \begin{figure*}[ht]
+\centering
+\subfigure[ijcnn1 $\eta=0.5$]{\includegraphics[width=0.5\columnwidth]{ijcnn105}\label{ijcnn105}}
+\subfigure[ijcnn1 $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{ijcnn1005}\label{ijcnn1005}}
+\subfigure[ijcnn1 $\eta=0.01$]{\includegraphics[width=0.5\columnwidth]{ijcnn1001}\label{ijcnn1001}}
+\subfigure[ijcnn1 $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{ijcnn10001}\label{ijcnn10001}}
+
+\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression on the dataset ijcnn1}
+\label{figure_logistic_ijcnn1}
+\end{figure*}
+
+\begin{figure*}[ht]
+\centering
+\subfigure[a9a $\eta=0.3$]{\includegraphics[width=0.5\columnwidth]{a9a03}\label{a9a03}}
+\subfigure[a9a $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{a9a005}\label{a9a005}}
+\subfigure[a9a $\eta=0.02$]{\includegraphics[width=0.5\columnwidth]{a9a002}\label{a9a002}}
+\subfigure[a9a $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{a9a0001}\label{a9a0001}}
+
+\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized logistic regression on the dataset a9a}
+\label{figure_logistic_a9a}
+\end{figure*}
+
+\begin{figure*}[ht]
+\subfigure[YearPredictionMSD $\eta=0.01$]{\includegraphics[width=0.5\columnwidth]{Year_scale001}\label{Year_scale001}}
+\subfigure[YearPredictionMSD $\eta=0.005$]{\includegraphics[width=0.5\columnwidth]{Year_scale0005}\label{Year_scale0005}}
+\subfigure[YearPredictionMSD $\eta=0.002$]{\includegraphics[width=0.5\columnwidth]{Year_scale0002}\label{Year_scale0002}}
+\subfigure[YearPredictionMSD $\eta=0.0001$]{\includegraphics[width=0.5\columnwidth]{Year_scale00001}\label{Year_scale00001}}
+\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized ridge regression on the dataset YearPredictionMSD}
+\label{figure_ridge_Year}
+\end{figure*}
 
 
 \begin{figure*}[ht]
@@ -453,18 +471,9 @@ In all figures, the $x$-axis denotes the computational cost, which is measured b
 \subfigure[cadata $\eta=0.05$]{\includegraphics[width=0.5\columnwidth]{cadata005}\label{cadata005}}
 \subfigure[cadata $\eta=0.02$]{\includegraphics[width=0.5\columnwidth]{cadata002}\label{cadata002}}
 \subfigure[cadata $\eta=0.001$]{\includegraphics[width=0.5\columnwidth]{cadata0001}\label{cadata0001}}
-\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized ridge regression on dataset cadata}
+\caption{Generally, \textsc{aeSVRG} can automatically set an appropriate $m$ with different learning rates for the $l2$-regularized ridge regression on the dataset cadata}
 \label{figure_ridge_cadata}
 \end{figure*}
-
-
-
-
-\subsection{Comparison of convergence performance with previous methods}
-In this section, we compare our \textsc{aeSVRG} and \textsc{aeSVRG+} with two aforementioned existing methods: SVRG++ and S2GD. We do not compare with SVRG\_Auto\_Epoch in that we find that its termination condition of epoch is never satisfied and  thus SVRG\_Auto\_Epoch keeps doing SGD iteration, resulting in non-convegent. For SVRG++, we initialize $m = n$. For S2GD, we set the maximum of $m$ to be $4n$. For both \textsc{aeSVRG} and \textsc{aeSVRG+}, we set the window size, i.e. $m_0$ to be $0.1n$. The learning rate, i.e. $\eta$, is fixed as $0.1$ throughout this part of experiments. We evaluate these methods by running logistic regression on the dataset ijcnn1. 
-As illustrated in Figure \ref{cm_test}, we can see that SVRG++ always fluctuates violently and fails to converge due the large variance caused by too large epoch size. It is shown that \textsc{aeSVRG} and \textsc{aeSVRG+} always outperform SVRG++ and S2GD and converge rapidly. Besides, the performance of \textsc{aeSVRG+} is superior to that of \textsc{aeSVRG}. The main reason is that \textsc{aeSVRG+} can adjust the windows size to a suitable value adaptively.
-
-
 
  \begin{figure*}[ht]
  \label{aeSVRG_aeSVRG+}
@@ -476,6 +485,12 @@ As illustrated in Figure \ref{cm_test}, we can see that SVRG++ always fluctuates
 \caption{Sensitivity test on $m_0$ for \textsc{aeSVRG} and \textsc{aeSVRG+}. The four numbers on the legends means four different choices of $m_0$. The $\eta$ of a9a and abalone are 0.2 and 0.1, respectively.}
 
 \end{figure*}
+
+
+\subsection{Comparison of convergence performance with previous methods}
+In this section, we compare our \textsc{aeSVRG} and \textsc{aeSVRG+} with two aforementioned existing methods: SVRG++ and S2GD. We do not compare with SVRG\_Auto\_Epoch in that we find that its termination condition of epoch is never satisfied and  thus SVRG\_Auto\_Epoch keeps doing SGD iteration, resulting in non-convegent. For SVRG++, we initialize $m = n$. For S2GD, we set the maximum of $m$ to be $4n$. For both \textsc{aeSVRG} and \textsc{aeSVRG+}, we set the window size, i.e. $m_0$ to be $0.1n$. The learning rate, i.e. $\eta$, is fixed as $0.1$ throughout this part of experiments. We evaluate these methods by running logistic regression on the dataset ijcnn1. 
+As illustrated in Figure \ref{cm_test}, we can see that SVRG++ always fluctuates violently and fails to converge due the large variance caused by too large epoch size. It is shown that \textsc{aeSVRG} and \textsc{aeSVRG+} always outperform SVRG++ and S2GD and converge rapidly. Besides, the performance of \textsc{aeSVRG+} is superior to that of \textsc{aeSVRG}. The main reason is that \textsc{aeSVRG+} can adjust the windows size to a suitable value adaptively.
+
 
  \subsection{Comparison of convergence performance with SVRG by varying learning rate}
  To demonstrate that our algorithm is capable of adjusting epoch size adaptively regarding to the learning rate, we compare our algorithm with SVRG for different $\eta$.
@@ -495,47 +510,20 @@ Hence \textsc{aeSVRG+} is more practical than \textsc{aeSVRG} in reality.
 \section{Discussion}
 \label{discussion}
 %?????????????????????????????????????????????????????????????????????
-Optimization problems are complex as there are numerous application scenarios, algorithms and datasets. It is impossible for SVRG to always achieve an excellent performance with the same epoch size. Besides, searching for the optimal epoch size is time-consuming and not feasible for massive data. Several existing methods provide some strategies for how to set the epoch size, but they are not well adapted to the various real problems. Hence our proposed algorithms which can adjust epoch size adaptively are great improvements of SVRG. Although we have not rigorously conducted the convergence analysis of \textsc{aeSVRG} and \textsc{aeSVRG+}, both of them prove to be efficient and have a significant improvement on the original SVRG experimentally. Thus the novel stop condition is a practical strategy for detecting the fluctuation of training loss. We leave it as an open question to prove the rationality theoretically.
+Optimization problems are complex as there are numerous application scenarios, algorithms and datasets. It is impossible for SVRG to always achieve an excellent performance with the same epoch size. Besides, the selection for an optimal epoch size is time-consuming and not feasible for massive data. Several existing methods provide some strategies for how to set the epoch size, but they are not well adapted to the various real problems. Hence our proposed algorithms which can adjust epoch size adaptively are great improvements of SVRG. Although we have not rigorously conducted the convergence analysis of \textsc{aeSVRG} and \textsc{aeSVRG+}, both of them prove to be efficient and have a significant improvement on the original SVRG experimentally. Thus the novel stop condition is a practical strategy for detecting the fluctuation of training loss. We leave it as an open question to prove the rationality theoretically.
 
 \section{Conclusion}
 In this paper we propose a novel stop condition for each epoch in SVRG, leading to a new variant of SVRG: \textsc{aeSVRG}, which can adjust the epoch size adaptively. We analyze how to choose the optimal value of parameters, and thus develops an improved method called \textsc{aeSVRG+}. We conduct numerical experiments on real datasets to demonstrate the advantage of convergence performance of \textsc{aeSVRG} and \textsc{aeSVRG+}. The experiments show that both \textsc{aeSVRG} and \textsc{aeSVRG+} are superior to existing methods. Moreover, the \textsc{aeSVRG+} is comparable to and sometimes even better than SVRG with best-tuned epoch size, but does not need to tune its epoch size.
 \label{conclusion}
 
 
+\section*{Acknowledgment}
+This work was  supported by the National Natural Science Foundation of China (Project NO. 60970034, 61170287, 61232016, 61303189 and 31501073).
 
 
 
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
 
 
-%\begin{thebibliography}{1}
-%\bibitem{IEEEhowto:kopka}
-%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
- % 0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-%\end{thebibliography}
-%\newpage
-\newpage
 \bibliographystyle{plain}
 \bibliography{reference}
 
