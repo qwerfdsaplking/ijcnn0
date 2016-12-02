@@ -18,6 +18,19 @@ Jonathan Barzilai and Jonathan~M. Borwein.
 \newblock Two-point step size gradient methods.
 \newblock {\em IMA Journal of Numerical Analysis}, 8(1):141--148, 1988.
 
+\bibitem{Boyd2013Convex}
+Boyd, Vandenberghe, and Faybusovich.
+\newblock Convex optimization.
+\newblock {\em IEEE Transactions on Automatic Control}, 51(11):1859--1859,
+  2013.
+
+\bibitem{Dean2012Large}
+Jeffrey Dean, Greg~S Corrado, Rajat Monga, Kai Chen, Matthieu Devin, Quoc~V Le,
+  Mark~Z Mao, Aurelio Ranzato, Andrew Senior, and Paul Tucker.
+\newblock Large scale distributed deep networks.
+\newblock {\em Advances in Neural Information Processing Systems}, pages
+  1232--1240, 2012.
+
 \bibitem{Johnson:9MAvkbgy}
 R~Johnson and T~Zhang.
 \newblock Accelerating stochastic gradient descent using predictive variance
@@ -48,6 +61,24 @@ Xingguo Li, Tuo Zhao, Raman Arora, Han Liu, and Jarvis Haupt.
   learning}.
 \newblock In {\em International Conference on Machine Learning}, New York, USA,
   June 2016.
+
+\bibitem{Robbins1951A}
+Herbert Robbins and Sutton Monro.
+\newblock A stochastic approximation method.
+\newblock {\em Annals of Mathematical Statistics}, 22(3):400--407, 1951.
+
+\bibitem{Roux2012A}
+Nicolas~Le Roux, Mark Schmidt, and Francis Bach.
+\newblock A stochastic gradient method with an exponential convergence rate for
+  finite training sets.
+\newblock {\em Advances in Neural Information Processing Systems},
+  4:2663--2671, 2012.
+
+\bibitem{Sa2015Global}
+Christopher~De Sa, Kunle Olukotun, and Christopher Ré.
+\newblock Global convergence of stochastic gradient descent for some non-convex
+  matrix problems.
+\newblock {\em Mathematics}, pages 2332--2341, 2015.
 
 \bibitem{Shah2016Trading}
 Vatsal Shah, Megasthenis Asteris, Anastasios Kyrillidis, and Sujay Sanghavi.
