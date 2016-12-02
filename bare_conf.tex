@@ -66,16 +66,15 @@
 % affiliations
 \author{\IEEEauthorblockN{Erxue Min}
 \IEEEauthorblockA{National University of \\Defense Technology\\
-Email: mex338@qq.com
 }
 \and
 \IEEEauthorblockN{Yawei Zhao}
 \IEEEauthorblockA{National University of \\Defense Technology\\
-Email: zhaoyawei@nudt.edu.cn}
+}
 \and
 \IEEEauthorblockN{XXXXX}
 \IEEEauthorblockA{National University of \\Defense Technology\\
-Email: XXXXX}
+}
 }
 
 % conference papers do not typically use \thanks and this command
@@ -154,7 +153,7 @@ mS2GD \citep{Liu:2015bx} uses mini-batch method to obtain a full gradient to red
 
 Generally, the epoch size, i.e. $m$ has a great impact on the convergence performance of SVRG.  More specifically, when $m$ is too small, it wastes too much time to compute the full gradient frequently. When $m$ is rather large, the variance between the stochastic gradient and the full gradient increases sharply, making the convergence of training loss extremely difficult. According to the analysis of variance \cite{AllenZhu:2016up}, both the epoch size, i.e. $m$ and learning rate, i.e. $\eta$ have a significant impact on the convergence performance.  However, those previous studies do not provide a practical method to set the value of those hyper-parameters. 
 
-Since SVRG applies SGD with variance reducer to optimize the object function, the training loss decreases rapidly at the beginning of each epoch but tends to fluctuate after excessive iterations. If we can detect the fluctuation and break the current epoch as soon as it happens, we are sure to achieve a better performance than original SVRG. Thus the key point is finding a effective strategy to detect the fluctuation in real time.
+Since SVRG applies SGD with variance reducer to optimize the object function, the training loss decreases rapidly at the beginning of each epoch but tends to fluctuate after excessive iterations. If we can detect the fluctuation and break the current epoch as soon as it happens, we are sure to achieve a better performance than the original SVRG. Thus the key point is finding a effective strategy to detect the fluctuation in real time.
 
 In this paper, we develop a novel algorithm denoted by \textsc{aeSVRG} which can adjust the epoch size adaptively.  \textsc{aeSVRG} applies a new stop condition regarding the variance and the change rate of parameters. Besides, such the stop condition terminates the iterations in an epoch by considering the value of learning rate.  Additionally, we give guidance of how to set the parameters in practical machine learning tasks. Since \textsc{aeSVRG} may stop iterations earlier than expectation when $\eta$ is quite small, we propose an improved algorithm denoted by \textsc{aeSVRG+}. In a nutshell, our contributions are highlighted as follows:
 \begin {itemize}
@@ -496,7 +495,7 @@ Hence \textsc{aeSVRG+} is more practical than \textsc{aeSVRG} in reality.
 \section{Discussion}
 \label{discussion}
 %?????????????????????????????????????????????????????????????????????
-Optimization problems are complex as there are numerous application scenarios, algorithms and datasets. It is impossible for SVRG to always achieve an excellent performance with the same epoch size. Besides, searching for the optimal epoch size is time-consuming and not feasible for massive data. Several existing methods provide some strategies for how to set the epoch size, but they are not well adapted to the various real problems. Hence our proposed algorithms which can adjust epoch size adaptively are great improvements of SVRG. Although we have not rigorously conducted the convergence analysis of \textsc{aeSVRG} and \textsc{aeSVRG+}, both of them prove to be efficient and have a significant improvement on original SVRG experimentally. Thus the novel stop condition is a practical strategy for detecting the fluctuation of training loss. We leave it as an open question to prove the rationality theoretically.
+Optimization problems are complex as there are numerous application scenarios, algorithms and datasets. It is impossible for SVRG to always achieve an excellent performance with the same epoch size. Besides, searching for the optimal epoch size is time-consuming and not feasible for massive data. Several existing methods provide some strategies for how to set the epoch size, but they are not well adapted to the various real problems. Hence our proposed algorithms which can adjust epoch size adaptively are great improvements of SVRG. Although we have not rigorously conducted the convergence analysis of \textsc{aeSVRG} and \textsc{aeSVRG+}, both of them prove to be efficient and have a significant improvement on the original SVRG experimentally. Thus the novel stop condition is a practical strategy for detecting the fluctuation of training loss. We leave it as an open question to prove the rationality theoretically.
 
 \section{Conclusion}
 In this paper we propose a novel stop condition for each epoch in SVRG, leading to a new variant of SVRG: \textsc{aeSVRG}, which can adjust the epoch size adaptively. We analyze how to choose the optimal value of parameters, and thus develops an improved method called \textsc{aeSVRG+}. We conduct numerical experiments on real datasets to demonstrate the advantage of convergence performance of \textsc{aeSVRG} and \textsc{aeSVRG+}. The experiments show that both \textsc{aeSVRG} and \textsc{aeSVRG+} are superior to existing methods. Moreover, the \textsc{aeSVRG+} is comparable to and sometimes even better than SVRG with best-tuned epoch size, but does not need to tune its epoch size.
