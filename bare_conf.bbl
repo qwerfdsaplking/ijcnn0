@@ -1,71 +1,11 @@
 \begin{thebibliography}{10}
 
-\bibitem{AllenZhu:2016up}
-Zeyuan Allen-Zhu and Elad Hazan.
-\newblock {Variance reduction for faster non-Convex optimization}.
-\newblock In {\em International Conference on Machine Learning}, New York, USA,
-  June 2016.
-
-\bibitem{Allen2015Improved}
-Zeyuan Allen-Zhu and Yang Yuan.
-\newblock {Improved SVRG for non-strongly-convex or sum-of-non-convex
-  objectives}.
-\newblock In {\em International Conference on Machine Learning}, New York, USA,
-  June 2016.
-
-\bibitem{Barzilai1988Two}
-Jonathan Barzilai and Jonathan~M. Borwein.
-\newblock Two-point step size gradient methods.
-\newblock {\em IMA Journal of Numerical Analysis}, 8(1):141--148, 1988.
-
-\bibitem{Boyd2013Convex}
-Boyd, Vandenberghe, and Faybusovich.
-\newblock Convex optimization.
-\newblock {\em IEEE Transactions on Automatic Control}, 51(11):1859--1859,
-  2013.
-
 \bibitem{Dean2012Large}
 Jeffrey Dean, Greg~S Corrado, Rajat Monga, Kai Chen, Matthieu Devin, Quoc~V Le,
   Mark~Z Mao, Aurelio Ranzato, Andrew Senior, and Paul Tucker.
 \newblock Large scale distributed deep networks.
 \newblock {\em Advances in Neural Information Processing Systems}, pages
   1232--1240, 2012.
-
-\bibitem{Johnson:9MAvkbgy}
-R~Johnson and T~Zhang.
-\newblock Accelerating stochastic gradient descent using predictive variance
-  reduction.
-\newblock {\em Advances in Neural Information Processing Systems}, pages
-  315--323, December 2013.
-
-\bibitem{KolteAccelerating}
-Ritesh Kolte and Murat Erdogdu.
-\newblock Accelerating svrg via second-order information.
-\newblock 2016.
-
-\bibitem{Liu:2015bx}
-Jakub Kone{\v{c}}n{\`y}, Jie Liu, Peter Richt{\'a}rik, and Martin
-  Tak{\'a}{\v{c}}.
-\newblock Mini-batch semi-stochastic gradient descent in the proximal setting.
-\newblock {\em IEEE Journal of Selected Topics in Signal Processing},
-  10(2):242--255, 2016.
-
-\bibitem{Richtarik:2013te}
-Jakub Kone{\v{c}}n{\`y} and Peter Richt{\'a}rik.
-\newblock Semi-stochastic gradient descent methods.
-\newblock {\em arXiv preprint arXiv:1312.1666}, 2013.
-
-\bibitem{Li:2016vh}
-Xingguo Li, Tuo Zhao, Raman Arora, Han Liu, and Jarvis Haupt.
-\newblock {Stochastic variance reduced optimization for nonconvex sparse
-  learning}.
-\newblock In {\em International Conference on Machine Learning}, New York, USA,
-  June 2016.
-
-\bibitem{Robbins1951A}
-Herbert Robbins and Sutton Monro.
-\newblock A stochastic approximation method.
-\newblock {\em Annals of Mathematical Statistics}, 22(3):400--407, 1951.
 
 \bibitem{Roux2012A}
 Nicolas~Le Roux, Mark Schmidt, and Francis Bach.
@@ -80,21 +20,45 @@ Christopher~De Sa, Kunle Olukotun, and Christopher Ré.
   matrix problems.
 \newblock {\em Mathematics}, pages 2332--2341, 2015.
 
-\bibitem{Shah2016Trading}
-Vatsal Shah, Megasthenis Asteris, Anastasios Kyrillidis, and Sujay Sanghavi.
-\newblock Trading-off variance and complexity in stochastic gradient descent.
-\newblock {\em arXiv preprint arXiv:1603.06861}, 2016.
+\bibitem{Boyd2013Convex}
+Boyd, Vandenberghe, and Faybusovich.
+\newblock Convex optimization.
+\newblock {\em IEEE Transactions on Automatic Control}, 51(11):1859--1859,
+  2013.
+
+\bibitem{Robbins1951A}
+Herbert Robbins and Sutton Monro.
+\newblock A stochastic approximation method.
+\newblock {\em Annals of Mathematical Statistics}, 22(3):400--407, 1951.
+
+\bibitem{Johnson:9MAvkbgy}
+R~Johnson and T~Zhang.
+\newblock Accelerating stochastic gradient descent using predictive variance
+  reduction.
+\newblock {\em Advances in Neural Information Processing Systems}, pages
+  315--323, December 2013.
 
 \bibitem{Tan2016Barzilai}
 Conghui Tan, Shiqian Ma, Yu~Hong Dai, and Yuqiu Qian.
 \newblock Barzilai-borwein step size for stochastic gradient descent.
 \newblock {\em arXiv preprint arXiv:1605.04131}, 2016.
 
-\bibitem{Xiao:2014vw}
-Lin Xiao and Tong Zhang.
-\newblock A proximal stochastic gradient method with progressive variance
-  reduction.
-\newblock {\em SIAM Journal on Optimization}, 24(4):2057--2075, 2014.
+\bibitem{Barzilai1988Two}
+Jonathan Barzilai and Jonathan~M. Borwein.
+\newblock Two-point step size gradient methods.
+\newblock {\em IMA Journal of Numerical Analysis}, 8(1):141--148, 1988.
+
+\bibitem{Shah2016Trading}
+Vatsal Shah, Megasthenis Asteris, Anastasios Kyrillidis, and Sujay Sanghavi.
+\newblock Trading-off variance and complexity in stochastic gradient descent.
+\newblock {\em arXiv preprint arXiv:1603.06861}, 2016.
+
+\bibitem{Liu:2015bx}
+Jakub Kone{\v{c}}n{\`y}, Jie Liu, Peter Richt{\'a}rik, and Martin
+  Tak{\'a}{\v{c}}.
+\newblock Mini-batch semi-stochastic gradient descent in the proximal setting.
+\newblock {\em IEEE Journal of Selected Topics in Signal Processing},
+  10(2):242--255, 2016.
 
 \bibitem{Zhang2013Linear}
 Lijun Zhang, Mehrdad Mahdavi, and Rong Jin.
@@ -102,5 +66,41 @@ Lijun Zhang, Mehrdad Mahdavi, and Rong Jin.
   gradients.
 \newblock In {\em Advances in Neural Information Processing Systems}, pages
   980--988, Lake Tahoe, USA, December 2013.
+
+\bibitem{Li:2016vh}
+Xingguo Li, Tuo Zhao, Raman Arora, Han Liu, and Jarvis Haupt.
+\newblock {Stochastic variance reduced optimization for nonconvex sparse
+  learning}.
+\newblock In {\em International Conference on Machine Learning}, New York, USA,
+  June 2016.
+
+\bibitem{Xiao:2014vw}
+Lin Xiao and Tong Zhang.
+\newblock A proximal stochastic gradient method with progressive variance
+  reduction.
+\newblock {\em SIAM Journal on Optimization}, 24(4):2057--2075, 2014.
+
+\bibitem{KolteAccelerating}
+Ritesh Kolte and Murat Erdogdu.
+\newblock Accelerating svrg via second-order information.
+\newblock 2016.
+
+\bibitem{AllenZhu:2016up}
+Zeyuan Allen-Zhu and Elad Hazan.
+\newblock {Variance reduction for faster non-Convex optimization}.
+\newblock In {\em International Conference on Machine Learning}, New York, USA,
+  June 2016.
+
+\bibitem{Allen2015Improved}
+Zeyuan Allen-Zhu and Yang Yuan.
+\newblock {Improved SVRG for non-strongly-convex or sum-of-non-convex
+  objectives}.
+\newblock In {\em International Conference on Machine Learning}, New York, USA,
+  June 2016.
+
+\bibitem{Richtarik:2013te}
+Jakub Kone{\v{c}}n{\`y} and Peter Richt{\'a}rik.
+\newblock Semi-stochastic gradient descent methods.
+\newblock {\em arXiv preprint arXiv:1312.1666}, 2013.
 
 \end{thebibliography}
